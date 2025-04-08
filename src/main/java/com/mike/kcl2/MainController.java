@@ -29,7 +29,7 @@ public class MainController {
             Parent root = fxmlLoader.load();
 
             Stage stage = new Stage();
-            stage.setTitle("Pop-up Window");
+            stage.setTitle("Ввод данных");
             stage.setScene(new Scene(root));
             stage.show();
 
