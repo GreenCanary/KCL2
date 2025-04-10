@@ -2,8 +2,9 @@ package com.mike.kcl2;
 
 public class InputValuesPrecentages {
     private double slRatio = 0;
-    private double mLiquid = 0;
-    private double mSolid = 0;
+    private double mRedWater = 0;
+    private double mTotal = 0;
+
 
     private double l_KCL_p = 0;
     private double l_NaCl_p = 0;
@@ -26,27 +27,20 @@ public class InputValuesPrecentages {
     }
 
 
-    public double getmLiquid() {
-        return mLiquid;
+    public double getmRedWater() {
+        return mRedWater;
     }
 
-    public void setmLiquid(double mLiquid) {
-        this.mLiquid = mLiquid;
+    public void setmRedWater(double mRedWater) {
+        this.mRedWater = mRedWater;
     }
 
-    public double getmSolid() {
-        return mSolid;
-    }
-
-    public void setmSolid(double mSolid) {
-        this.mSolid = mSolid;
-    }
 
     public double getL_KCL_p() {
         return l_KCL_p;
     }
 
-    public void setL_KCL_p(double l_KCL_p) {
+    public void setL_KCl_p(double l_KCL_p) {
         this.l_KCL_p = l_KCL_p;
     }
 
@@ -96,5 +90,13 @@ public class InputValuesPrecentages {
 
     public void setS_CaSO4_p(double s_CaSO4_p) {
         this.s_CaSO4_p = s_CaSO4_p;
+    }
+
+    public double getmTotal() {
+        return mTotal;
+    }
+
+    public void setmTotal(double mTotal) {
+        this.mTotal = mTotal;
     }
 }

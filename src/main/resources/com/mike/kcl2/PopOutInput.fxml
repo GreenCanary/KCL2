@@ -46,7 +46,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="591.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mike.kcl2.MainController">
+<VBox prefHeight="591.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mike.kcl2.InputController">
   <children>
       <MenuBar>
         <menus>
@@ -108,7 +108,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="mSolidTextField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <TextField fx:id="mTotalTextField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <TextField fx:id="slRatioTextField" GridPane.columnIndex="3" GridPane.rowIndex="5" />
                   <TextField fx:id="KClRedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="NaClRedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />

@@ -9,18 +9,17 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Pitanie.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("PopOutInput.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("KCL");
+        stage.setTitle("Внесите данные");
         stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
 
-        MainController controller = fxmlLoader.getController();
+        InputController controller = fxmlLoader.getController();
 
         InputValuesPrecentages inputValuesPrecentages = new InputValuesPrecentages();
         controller.initData(inputValuesPrecentages);
-        Material floto = new Material();
 
     }
 

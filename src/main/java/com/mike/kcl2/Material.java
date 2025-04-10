@@ -2,6 +2,11 @@ package com.mike.kcl2;
 
 public class Material {
     //solid phase section
+    private double mSolid = 0;
+    private double mLiquid = 0;
+    private double slRatio = 0;
+
+
     private double s_KCl_p = 0;
     private double s_KCl_v = 0;
     private double s_NaCl_p = 0;
@@ -93,11 +98,11 @@ public class Material {
         this.s_Check_v = s_Check_v;
     }
 
-    public double getL_Kcl_p() {
+    public double getL_KCl_p() {
         return l_KCl_p;
     }
 
-    public void setL_Kcl_p(double l_Kcl_p) {
+    public void setL_KCl_p(double l_Kcl_p) {
         this.l_KCl_p = l_Kcl_p;
     }
 
@@ -171,5 +176,29 @@ public class Material {
 
     public void setL_Check_v(double l_Check_v) {
         this.l_Check_v = l_Check_v;
+    }
+
+    public double getmSolid() {
+        return mSolid;
+    }
+
+    public void setmSolid(double mSolid) {
+        this.mSolid = mSolid;
+    }
+
+    public double getSlRatio() {
+        return slRatio;
+    }
+
+    public void setSlRatio(double slRatio) {
+        this.slRatio = slRatio;
+    }
+
+    public double getmLiquid() {
+        return mLiquid;
+    }
+
+    public void setmLiquid(double mLiquid) {
+        this.mLiquid = mLiquid;
     }
 }
