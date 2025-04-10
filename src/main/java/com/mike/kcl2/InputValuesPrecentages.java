@@ -6,10 +6,10 @@ public class InputValuesPrecentages {
     private double mTotal = 0;
 
 
-    private double l_KCL_p = 0;
-    private double l_NaCl_p = 0;
-    private double l_CaSO4_p = 0;
-    private double H2O_p = 0;
+    private double red_KCL_p = 0;
+    private double red_NaCl_p = 0;
+    private double red_CaSO4_p = 0;
+    private double red_H2O_p = 0;
 
     private double s_KCL_p = 0;
     private double s_NaCl_p = 0;
@@ -36,43 +36,43 @@ public class InputValuesPrecentages {
     }
 
 
-    public double getL_KCL_p() {
-        return l_KCL_p;
+    public double getRed_KCL_p() {
+        return red_KCL_p;
     }
 
     public void setL_KCl_p(double l_KCL_p) {
-        this.l_KCL_p = l_KCL_p;
+        this.red_KCL_p = l_KCL_p;
     }
 
-    public double getL_NaCl_p() {
-        return l_NaCl_p;
+    public double getRed_NaCl_p() {
+        return red_NaCl_p;
     }
 
-    public void setL_NaCl_p(double l_NaCl_p) {
-        this.l_NaCl_p = l_NaCl_p;
+    public void setRed_NaCl_p(double red_NaCl_p) {
+        this.red_NaCl_p = red_NaCl_p;
     }
 
-    public double getL_CaSO4_p() {
-        return l_CaSO4_p;
+    public double getRed_CaSO4_p() {
+        return red_CaSO4_p;
     }
 
-    public void setL_CaSO4_p(double l_CaSO4_p) {
-        this.l_CaSO4_p = l_CaSO4_p;
+    public void setRed_CaSO4_p(double red_CaSO4_p) {
+        this.red_CaSO4_p = red_CaSO4_p;
     }
 
-    public double getH2O_p() {
-        return H2O_p;
+    public double getRed_H2O_p() {
+        return red_H2O_p;
     }
 
-    public void setH2O_p(double h2O_p) {
-        H2O_p = h2O_p;
+    public void setRed_H2O_p(double red_H2O_p) {
+        this.red_H2O_p = red_H2O_p;
     }
 
     public double getS_KCL_p() {
         return s_KCL_p;
     }
 
-    public void setS_KCL_p(double s_KCL_p) {
+    public void setS_KCl_p(double s_KCL_p) {
         this.s_KCL_p = s_KCL_p;
     }
 

@@ -1,6 +1,5 @@
 package com.mike.kcl2;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -138,40 +137,23 @@ public class InputController {
         try {
             // Read and parse red water input fields and store in the corresponding properties
             double mRedWater = Double.parseDouble(mRedWaterTextField.getText());
-            double l_KCl_p = Double.parseDouble(KClRedWaterTextField.getText());
-            double l_NaCl_p = Double.parseDouble(NaClRedWaterTextField.getText());
-            double l_CaSO4_p = Double.parseDouble(CaSO4RedWaterTextField.getText());
-            double H2O_p = Double.parseDouble(H2ORedWaterTextField.getText());
-
-
-            // Print parsed values to check if they are correct
-            System.out.println("Parsed Red Water values:");
-            System.out.println("mRedWater: " + mRedWater);
-            System.out.println("l_KCl_p: " + l_KCl_p);
-            System.out.println("l_NaCl_p: " + l_NaCl_p);
-            System.out.println("l_CaSO4_p: " + l_CaSO4_p);
-            System.out.println("H2O_p: " + H2O_p);
+            double red_KCl_p = Double.parseDouble(KClRedWaterTextField.getText());
+            double red_NaCl_p = Double.parseDouble(NaClRedWaterTextField.getText());
+            double red_CaSO4_p = Double.parseDouble(CaSO4RedWaterTextField.getText());
+            double red_H2O_p = Double.parseDouble(H2ORedWaterTextField.getText());
 
             // Read and parse solid input fields and store in the corresponding properties
             double slRatio = Double.parseDouble(slRatioTextField.getText());
             double mTotal = Double.parseDouble(mTotalTextField.getText());
 
-            double mSolid = mTotal * slRatio;
-            double mLiquid = mTotal - mSolid;
-            double s_KCL_p = Double.parseDouble(KClSolidTextField.getText());
+            double mLiquid = (mTotal * slRatio)/(slRatio + 1);
+            double mSolid = mTotal - mLiquid;
+            double s_KCl_p = Double.parseDouble(KClSolidTextField.getText());
             double s_NaCl_p = Double.parseDouble(NaClSolidTextField.getText());
             double s_CaSO4_p = Double.parseDouble(CaSO4SolidTextField.getText());
 
 
-//             Print parsed solid values to check if they are correct
-            System.out.println("Parsed Solid values:");
-            System.out.println("mTotal: " + mTotal);
-            System.out.println("s_KCL_p: " + s_KCL_p);
-            System.out.println("s_NaCl_p: " + s_NaCl_p);
-            System.out.println("s_CaSO4_p: " + s_CaSO4_p);
-            System.out.println("slRatio: " + slRatio);
-
-            double sumLiquidPercentages = l_KCl_p + l_NaCl_p + l_CaSO4_p + H2O_p;
+            double sumLiquidPercentages = red_KCl_p + red_NaCl_p + red_CaSO4_p + red_H2O_p;
             if (sumLiquidPercentages != 100) {
                 // Create an alert to show the error message
                 Alert alert = new Alert(Alert.AlertType.ERROR,
@@ -181,7 +163,7 @@ public class InputController {
                 alert.showAndWait();
                 return; // Exit the method if the check fails
             }
-            double sumSolidPercentages = s_KCL_p + s_NaCl_p + s_CaSO4_p;
+            double sumSolidPercentages = s_KCl_p + s_NaCl_p + s_CaSO4_p;
             if (sumSolidPercentages != 100) {
                 // Create an alert to show the error message
                 Alert alert = new Alert(Alert.AlertType.ERROR,
@@ -192,6 +174,9 @@ public class InputController {
                 return; // Exit the method if the check fails
             }
 
+
+
+
             // Store in InputValuesPrecentages object
             inputValues = new InputValuesPrecentages();
             floto = new Material();
@@ -199,72 +184,84 @@ public class InputController {
 
             // Set the values
             inputValues.setmRedWater(mRedWater);
-            inputValues.setL_KCl_p(l_KCl_p);
-            inputValues.setL_NaCl_p(l_NaCl_p);
-            inputValues.setL_CaSO4_p(l_CaSO4_p);
-            inputValues.setH2O_p(H2O_p);
+            inputValues.setL_KCl_p(red_KCl_p);
+            inputValues.setRed_NaCl_p(red_NaCl_p);
+            inputValues.setRed_CaSO4_p(red_CaSO4_p);
+            inputValues.setRed_H2O_p(red_H2O_p);
 
             inputValues.setmTotal(mTotal);
-            inputValues.setS_KCL_p(s_KCL_p);
+            inputValues.setS_KCl_p(s_KCl_p);
             inputValues.setS_NaCl_p(s_NaCl_p);
             inputValues.setS_CaSO4_p(s_CaSO4_p);
             inputValues.setSlRatio(slRatio);
 
-            // Print values after they are set in inputValues to check if they are correctly assigned
-            System.out.println("Values after being set in InputValuesPrecentages object:");
-            System.out.println("mRedWater: " + inputValues.getmRedWater());
-            System.out.println("l_KCl_p: " + inputValues.getL_KCL_p());
-            System.out.println("l_NaCl_p: " + inputValues.getL_NaCl_p());
-            System.out.println("l_CaSO4_p: " + inputValues.getL_CaSO4_p());
-            System.out.println("H2O_p: " + inputValues.getH2O_p());
 
-            System.out.println("mTotal: " + inputValues.getmTotal());
-            System.out.println("s_KCL_p: " + inputValues.getS_KCL_p());
-            System.out.println("s_NaCl_p: " + inputValues.getS_NaCl_p());
-            System.out.println("s_CaSO4_p: " + inputValues.getS_CaSO4_p());
-            System.out.println("slRatio: " + inputValues.getSlRatio());
+
 
             // floto time
 
             floto.setmSolid(mSolid);
-            floto.setS_KCl_p(s_KCL_p);
+            floto.setS_KCl_p(s_KCl_p);
             floto.setS_NaCl_p(s_NaCl_p);
             floto.setS_CaSO4_p(s_CaSO4_p);
+            floto.setS_Check_p(s_KCl_p + s_NaCl_p +s_CaSO4_p);
             floto.setSlRatio(slRatio);
+
             floto.setmLiquid(mLiquid);
             floto.setL_KCl_p(12);
             floto.setL_NaCl_p(20);
             floto.setL_CaSO4_p(0.4);
             floto.setH2O_p(67.6);
+            floto.setL_Check_p(100);
 
-            floto.setS_KCl_v(s_KCL_p * mSolid/100);
-            floto.setS_NaCl_v(s_NaCl_p * mSolid/100);
-            floto.setS_CaSO4_v(s_CaSO4_p * mSolid/100);
-            floto.setL_KCl_v(12 * mLiquid/100);
-            floto.setL_NaCl_v(20 * mLiquid/100);
-            floto.setL_CaSO4_v(0.4 * mLiquid/100);
-            floto.setH2O_v(67.6 * mLiquid/100);
+// Format the values with 2 decimal places
+            floto.setS_KCl_v(Double.parseDouble(String.format("%.2f", floto.getS_KCl_p() * mSolid / 100)));
+            floto.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_p() * mSolid / 100)));
+            floto.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", floto.getS_CaSO4_p() * mSolid / 100)));
+            floto.setS_Check_v(Double.parseDouble(String.format("%.2f", floto.getS_KCl_v() + floto.getS_NaCl_v()+ floto.getS_CaSO4_v())));
 
+            floto.setL_KCl_v(Double.parseDouble(String.format("%.2f", 12 * mLiquid / 100)));
+            floto.setL_NaCl_v(Double.parseDouble(String.format("%.2f", 20 * mLiquid / 100)));
+            floto.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.4 * mLiquid / 100)));
+            floto.setH2O_v(Double.parseDouble(String.format("%.2f", 67.6 * mLiquid / 100)));
+            floto.setL_Check_v(Double.parseDouble(String.format("%.2f", floto.getL_KCl_v() + floto.getL_NaCl_v()+ floto.getL_CaSO4_v()+ floto.getH2O_v())));
 
 
 
             filtrat.setmSolid(mSolid);
-            filtrat.setS_KCl_p(s_KCL_p);
-            filtrat.setS_NaCl_p(s_NaCl_p);
-            filtrat.setS_CaSO4_p(s_CaSO4_p);
+            filtrat.setS_KCl_p(96.74);
+            filtrat.setS_NaCl_p(0.51);
+            filtrat.setS_CaSO4_p(2.75);
+            filtrat.setS_Check_p(100);
+
             filtrat.setSlRatio(slRatio);
             filtrat.setmLiquid(mLiquid);
-            filtrat.setL_KCl_p(12);
-            filtrat.setL_NaCl_p(20);
+            filtrat.setL_KCl_p(17.2);
+            filtrat.setL_NaCl_p(10);
             filtrat.setL_CaSO4_p(0.4);
-            filtrat.setH2O_p(67.6);
-            filtrat.setS_KCl_v(s_KCL_p * mSolid/100);
-            filtrat.setS_NaCl_v(s_NaCl_p * mSolid/100);
-            filtrat.setS_CaSO4_v(s_CaSO4_p * mSolid/100);
-            filtrat.setL_KCl_v(12 * mLiquid/100);
-            filtrat.setL_NaCl_v(20 * mLiquid/100);
-            filtrat.setL_CaSO4_v(0.4 * mLiquid/100);
-            filtrat.setH2O_v(67.6 * mLiquid/100);
+            filtrat.setH2O_p(72.4);
+            filtrat.setL_Check_p(100);
+
+// Format the values with 2 decimal places
+            filtrat.setS_KCl_v(Double.parseDouble(String.format("%.2f", filtrat.getS_KCl_p() * mSolid / 100)));
+            filtrat.setS_NaCl_v(Double.parseDouble(String.format("%.2f", filtrat.getS_NaCl_p() * mSolid / 100)));
+            filtrat.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", filtrat.getS_CaSO4_p() * mSolid / 100)));
+            filtrat.setS_Check_v(Double.parseDouble(String.format("%.2f", filtrat.getS_KCl_v() + filtrat.getS_NaCl_v()+ filtrat.getS_CaSO4_v())));
+
+            filtrat.setL_KCl_v(Double.parseDouble(String.format("%.2f", 12 * mLiquid / 100)));
+            filtrat.setL_NaCl_v(Double.parseDouble(String.format("%.2f", 20 * mLiquid / 100)));
+            filtrat.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.4 * mLiquid / 100)));
+            filtrat.setH2O_v(Double.parseDouble(String.format("%.2f", 67.6 * mLiquid / 100)));
+            filtrat.setL_Check_v(Double.parseDouble(String.format("%.2f", filtrat.getL_KCl_v() + filtrat.getL_NaCl_v()+ filtrat.getL_CaSO4_v()+ filtrat.getH2O_v())));
+
+
+
+
+
+
+
+
+
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Pitanie.fxml"));
             Parent root = loader.load();
@@ -280,7 +277,7 @@ public class InputController {
             // Get the current stage and set the new scene
             Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Питание"); // Optional: change window title
+            stage.setTitle("Питание выщелачивания"); // Optional: change window title
             stage.show();
 
 

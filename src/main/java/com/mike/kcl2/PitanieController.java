@@ -86,7 +86,7 @@ public class PitanieController {
         setLabelValue(label_l_NaCl_v, floto.getL_NaCl_v());
         setLabelValue(label_l_CaSO4_v, floto.getL_CaSO4_v());
         setLabelValue(label_l_Check_v, floto.getL_Check_v());
-        setLabelPrecentage(label_H2O_v, floto.getH2O_v());
+        setLabelValue(label_H2O_v, floto.getH2O_v());
 
 
 
@@ -111,7 +111,7 @@ public class PitanieController {
         setLabelValue(label_l_NaCl_v2, filtrat.getL_NaCl_v());
         setLabelValue(label_l_CaSO4_v2, filtrat.getL_CaSO4_v());
         setLabelValue(label_l_Check_v2, filtrat.getL_Check_v());
-        setLabelPrecentage(label_H2O_v2, filtrat.getH2O_v());
+        setLabelValue(label_H2O_v2, filtrat.getH2O_v());
     }
 
     public void MenuInputPopOut(ActionEvent actionEvent) {
