@@ -198,10 +198,6 @@ public class InputController {
             stage.setScene(new Scene(root));
             stage.setTitle("Питание"); // Optional: change window title
             stage.show();
-            pitanieController.setSolidKClPercentage(floto.getS_KCl_p());
-
-
-
 
 
         } catch (NumberFormatException e) {

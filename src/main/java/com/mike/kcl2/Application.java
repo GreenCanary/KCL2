@@ -12,7 +12,6 @@ public class Application extends javafx.application.Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("PopOutInput.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Внесите данные");
-        stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
 
