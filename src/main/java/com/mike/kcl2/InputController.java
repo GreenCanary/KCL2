@@ -1,5 +1,6 @@
 package com.mike.kcl2;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import java.util.prefs.Preferences;
 
 import java.io.IOException;
 
@@ -47,12 +49,70 @@ public class InputController {
 
 
 
-
-
     public void initData(InputValuesPrecentages inputValues) {
         this.inputValues = inputValues;
     }
 
+    @FXML
+    private void SaveMenuItemClicked(ActionEvent event) {
+        Preferences prefs = Preferences.userNodeForPackage(InputController.class);
+
+        prefs.put("mRedWater", mRedWaterTextField.getText());
+        prefs.put("KClRedWater", KClRedWaterTextField.getText());
+        prefs.put("NaClRedWater", NaClRedWaterTextField.getText());
+        prefs.put("CaSO4RedWater", CaSO4RedWaterTextField.getText());
+        prefs.put("H2ORedWater", H2ORedWaterTextField.getText());
+        prefs.put("mTotal", mTotalTextField.getText());
+        prefs.put("KClSolid", KClSolidTextField.getText());
+        prefs.put("NaClSolid", NaClSolidTextField.getText());
+        prefs.put("CaSO4Solid", CaSO4SolidTextField.getText());
+        prefs.put("slRatio", slRatioTextField.getText());
+    }
+    @FXML
+    public void LoadMenuItemClicked() {
+        Preferences prefs = Preferences.userNodeForPackage(InputController.class);
+
+        mRedWaterTextField.setText(prefs.get("mRedWater", ""));
+        KClRedWaterTextField.setText(prefs.get("KClRedWater", ""));
+        NaClRedWaterTextField.setText(prefs.get("NaClRedWater", ""));
+        CaSO4RedWaterTextField.setText(prefs.get("CaSO4RedWater", ""));
+        H2ORedWaterTextField.setText(prefs.get("H2ORedWater", ""));
+        mTotalTextField.setText(prefs.get("mTotal", ""));
+        KClSolidTextField.setText(prefs.get("KClSolid", ""));
+        NaClSolidTextField.setText(prefs.get("NaClSolid", ""));
+        CaSO4SolidTextField.setText(prefs.get("CaSO4Solid", ""));
+        slRatioTextField.setText(prefs.get("slRatio", ""));
+    }
+    @FXML
+    private void DeleteMenuItemClicked(ActionEvent event) {
+        Preferences prefs = Preferences.userNodeForPackage(InputController.class);
+
+        // Clear preferences
+        prefs.remove("mRedWater");
+        prefs.remove("KClRedWater");
+        prefs.remove("NaClRedWater");
+        prefs.remove("CaSO4RedWater");
+        prefs.remove("H2ORedWater");
+
+        prefs.remove("mTotal");
+        prefs.remove("KClSolid");
+        prefs.remove("NaClSolid");
+        prefs.remove("CaSO4Solid");
+        prefs.remove("slRatio");
+
+        // Clear text fields
+        mRedWaterTextField.clear();
+        KClRedWaterTextField.clear();
+        NaClRedWaterTextField.clear();
+        CaSO4RedWaterTextField.clear();
+        H2ORedWaterTextField.clear();
+
+        mTotalTextField.clear();
+        KClSolidTextField.clear();
+        NaClSolidTextField.clear();
+        CaSO4SolidTextField.clear();
+        slRatioTextField.clear();
+    }
 
 
     public void handleOpenWindow(ActionEvent event) {
@@ -135,6 +195,7 @@ public class InputController {
             // Store in InputValuesPrecentages object
             inputValues = new InputValuesPrecentages();
             floto = new Material();
+            filtrat = new Material();
 
             // Set the values
             inputValues.setmRedWater(mRedWater);
@@ -170,7 +231,6 @@ public class InputController {
             floto.setS_NaCl_p(s_NaCl_p);
             floto.setS_CaSO4_p(s_CaSO4_p);
             floto.setSlRatio(slRatio);
-
             floto.setmLiquid(mLiquid);
             floto.setL_KCl_p(12);
             floto.setL_NaCl_p(20);
@@ -180,18 +240,42 @@ public class InputController {
             floto.setS_KCl_v(s_KCL_p * mSolid/100);
             floto.setS_NaCl_v(s_NaCl_p * mSolid/100);
             floto.setS_CaSO4_v(s_CaSO4_p * mSolid/100);
-
             floto.setL_KCl_v(12 * mLiquid/100);
             floto.setL_NaCl_v(20 * mLiquid/100);
             floto.setL_CaSO4_v(0.4 * mLiquid/100);
             floto.setH2O_v(67.6 * mLiquid/100);
+
+
+
+
+            filtrat.setmSolid(mSolid);
+            filtrat.setS_KCl_p(s_KCL_p);
+            filtrat.setS_NaCl_p(s_NaCl_p);
+            filtrat.setS_CaSO4_p(s_CaSO4_p);
+            filtrat.setSlRatio(slRatio);
+            filtrat.setmLiquid(mLiquid);
+            filtrat.setL_KCl_p(12);
+            filtrat.setL_NaCl_p(20);
+            filtrat.setL_CaSO4_p(0.4);
+            filtrat.setH2O_p(67.6);
+            filtrat.setS_KCl_v(s_KCL_p * mSolid/100);
+            filtrat.setS_NaCl_v(s_NaCl_p * mSolid/100);
+            filtrat.setS_CaSO4_v(s_CaSO4_p * mSolid/100);
+            filtrat.setL_KCl_v(12 * mLiquid/100);
+            filtrat.setL_NaCl_v(20 * mLiquid/100);
+            filtrat.setL_CaSO4_v(0.4 * mLiquid/100);
+            filtrat.setH2O_v(67.6 * mLiquid/100);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Pitanie.fxml"));
             Parent root = loader.load();
 
             // Optionally pass values to PitanieController
             PitanieController pitanieController = loader.getController();
-            pitanieController.setSolidKClPercentage(floto.getS_KCl_p());
+            pitanieController.setFloto(floto);
+            pitanieController.setFiltrat(filtrat);
+
+            // Call the method to update all labels
+            pitanieController.updateAllLabels();
 
             // Get the current stage and set the new scene
             Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
