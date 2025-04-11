@@ -131,8 +131,8 @@
     </SplitPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="868.0" layoutY="3.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="115.0" style="-fx-background-color: lightblue;" text="&gt;" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0" />
-            <Button layoutX="57.0" layoutY="3.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="115.0" style="-fx-background-color: lightblue;" text="&lt;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+            <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="868.0" layoutY="3.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="115.0" style="-fx-background-color: lightblue; -fx-border-color: black;" text="&gt;" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0" />
+            <Button layoutX="57.0" layoutY="3.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="115.0" style="-fx-background-color: lightblue; -fx-border-color: black;" text="&lt;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
             <Label alignment="CENTER" layoutX="436.0" layoutY="19.0" text="KCl v1.0 by Ivanov M.V." textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
                <font>
                   <Font name="System Italic" size="8.0" />

@@ -243,16 +243,19 @@ public class InputController {
             filtrat.setL_Check_p(100);
 
 // Format the values with 2 decimal places
-            filtrat.setS_KCl_v(Double.parseDouble(String.format("%.2f", filtrat.getS_KCl_p() * mSolid / 100)));
-            filtrat.setS_NaCl_v(Double.parseDouble(String.format("%.2f", filtrat.getS_NaCl_p() * mSolid / 100)));
-            filtrat.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", filtrat.getS_CaSO4_p() * mSolid / 100)));
-            filtrat.setS_Check_v(Double.parseDouble(String.format("%.2f", filtrat.getS_KCl_v() + filtrat.getS_NaCl_v()+ filtrat.getS_CaSO4_v())));
-
-            filtrat.setL_KCl_v(Double.parseDouble(String.format("%.2f", 12 * mLiquid / 100)));
-            filtrat.setL_NaCl_v(Double.parseDouble(String.format("%.2f", 20 * mLiquid / 100)));
-            filtrat.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.4 * mLiquid / 100)));
-            filtrat.setH2O_v(Double.parseDouble(String.format("%.2f", 67.6 * mLiquid / 100)));
+            double H2OFiltrat = 1.1 * floto.getH2O_p() / floto.getL_NaCl_p() * floto.getS_NaCl_v() * (1 + (filtrat.getL_NaCl_p() / filtrat.getH2O_p() * floto.getH2O_p() / floto.getL_NaCl_p()));
+            filtrat.setH2O_v(Double.parseDouble(String.format("%.2f", H2OFiltrat)));
+            filtrat.setL_KCl_v(Double.parseDouble(String.format("%.2f",filtrat.getH2O_v()/ filtrat.getH2O_p()*filtrat.getL_KCl_p())));
+            filtrat.setL_NaCl_v(Double.parseDouble(String.format("%.2f", filtrat.getH2O_v()/ filtrat.getH2O_p() * filtrat.getL_NaCl_p())));
+            filtrat.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", filtrat.getH2O_v()/ filtrat.getH2O_p()* filtrat.getL_CaSO4_p())));
             filtrat.setL_Check_v(Double.parseDouble(String.format("%.2f", filtrat.getL_KCl_v() + filtrat.getL_NaCl_v()+ filtrat.getL_CaSO4_v()+ filtrat.getH2O_v())));
+
+
+            filtrat.setS_Check_v(Double.parseDouble(String.format("%.2f", filtrat.getL_Check_v()/101.3902)));
+            filtrat.setS_KCl_v(Double.parseDouble(String.format("%.2f", filtrat.getS_Check_v()*filtrat.getS_KCl_p()/100)));
+            filtrat.setS_NaCl_v(Double.parseDouble(String.format("%.2f",filtrat.getS_Check_v()*filtrat.getS_NaCl_p()/100)));
+            filtrat.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", filtrat.getS_Check_v()*filtrat.getS_CaSO4_p()/100)));
+
 
 
 
