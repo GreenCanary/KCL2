@@ -256,6 +256,7 @@ public class InputController {
             filtrat.setS_NaCl_v(Double.parseDouble(String.format("%.2f",filtrat.getS_Check_v()*filtrat.getS_NaCl_p()/100)));
             filtrat.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", filtrat.getS_Check_v()*filtrat.getS_CaSO4_p()/100)));
 
+            //PosleVish section
 
 
 
@@ -264,8 +265,7 @@ public class InputController {
 
 
 
-
-
+            //Loading first sheet
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Pitanie.fxml"));
             Parent root = loader.load();
 
@@ -273,9 +273,8 @@ public class InputController {
             PitanieController pitanieController = loader.getController();
             pitanieController.setFloto(floto);
             pitanieController.setFiltrat(filtrat);
-
-            // Call the method to update all labels
             pitanieController.updateAllLabels();
+
 
             // Get the current stage and set the new scene
             Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
