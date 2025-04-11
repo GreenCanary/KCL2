@@ -1,10 +1,13 @@
 package com.mike.kcl2;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
@@ -47,6 +50,9 @@ public class PitanieController {
     @FXML private Label label_l_Check_v2;
     @FXML private Label label_H2O_p2;
     @FXML private Label label_H2O_v2;
+
+    @FXML private PieChart solidPie;
+    @FXML private PieChart liquidPie;
     private Material floto;  // Declare floto object
     private Material filtrat;
     // Add a setter method for floto
@@ -112,6 +118,29 @@ public class PitanieController {
         setLabelValue(label_l_CaSO4_v2, filtrat.getL_CaSO4_v());
         setLabelValue(label_l_Check_v2, filtrat.getL_Check_v());
         setLabelValue(label_H2O_v2, filtrat.getH2O_v());
+
+        solidPie.setTitle("Фугат + Фильтрат (Твердая фаза)");
+        liquidPie.setTitle("Фугат + Фильтрат (Жидкая фаза)");
+        solidPie.setStyle("-fx-font-size: 12px;");
+        liquidPie.setStyle("-fx-font-size: 12px;");
+
+        ObservableList<PieChart.Data> solidPieChartData = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", filtrat.getS_KCl_p()), filtrat.getS_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", filtrat.getS_NaCl_p()), filtrat.getS_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", filtrat.getS_CaSO4_p()), filtrat.getS_CaSO4_p())
+        );
+        solidPie.setData(solidPieChartData);
+
+        ObservableList<PieChart.Data> liquidPieChartData = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", filtrat.getL_KCl_p()), filtrat.getL_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", filtrat.getL_NaCl_p()), filtrat.getL_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", filtrat.getL_CaSO4_p()), filtrat.getL_CaSO4_p()),
+                new PieChart.Data(String.format("H₂O - %.2f%%", filtrat.getH2O_p()), filtrat.getH2O_p())
+        );
+        liquidPie.setData(liquidPieChartData);
+
+
+
     }
 
     public void MenuInputPopOut(ActionEvent actionEvent) {

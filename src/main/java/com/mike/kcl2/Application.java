@@ -20,6 +20,7 @@ public class Application extends javafx.application.Application {
         InputValuesPrecentages inputValuesPrecentages = new InputValuesPrecentages();
         controller.initData(inputValuesPrecentages);
 
+
     }
 
     public static void main(String[] args) {
