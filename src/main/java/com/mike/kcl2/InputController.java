@@ -18,7 +18,7 @@ import java.io.IOException;
 public class InputController {
 
     private InputValuesPrecentages inputValues;
-    private PitanieController pitanieController;
+    private MainController mainController;
     private Material floto;
     private Material filtrat;
     private Material posleVish;
@@ -181,6 +181,7 @@ public class InputController {
             inputValues = new InputValuesPrecentages();
             floto = new Material();
             filtrat = new Material();
+            posleVish = new Material();
 
             // Set the values
             inputValues.setmRedWater(mRedWater);
@@ -256,7 +257,38 @@ public class InputController {
             filtrat.setS_NaCl_v(Double.parseDouble(String.format("%.2f",filtrat.getS_Check_v()*filtrat.getS_NaCl_p()/100)));
             filtrat.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", filtrat.getS_Check_v()*filtrat.getS_CaSO4_p()/100)));
 
+
+
+
             //PosleVish section
+
+            posleVish.setH2O_v(Double.parseDouble(String.format("%.2f", floto.getH2O_v() + filtrat.getH2O_v())));
+            posleVish.setL_KCl_v(Double.parseDouble(String.format("%.2f",floto.getL_KCl_p() + 14.9090)));
+            posleVish.setL_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getL_NaCl_v() + 24.8484)));
+            posleVish.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", floto.getL_CaSO4_p() + 0.496969)));
+            posleVish.setL_Check_v(Double.parseDouble(String.format("%.2f", posleVish.getH2O_v() + posleVish.getL_KCl_v() + posleVish.getL_NaCl_v() + posleVish.getL_CaSO4_v())));
+
+
+            posleVish.setS_KCl_v(Double.parseDouble(String.format("%.2f", floto.getS_KCl_v() + filtrat.getS_KCl_v() + filtrat.getL_KCl_v() - 14.9090)));
+            posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f",floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - 24.8484)));
+            posleVish.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", floto.getS_CaSO4_v() + filtrat.getS_CaSO4_v() + filtrat.getL_CaSO4_v() - 0.496969)));
+            posleVish.setS_Check_v(Double.parseDouble(String.format("%.2f", posleVish.getS_KCl_v()+ posleVish.getS_NaCl_v() + posleVish.getS_CaSO4_v())));
+
+
+            posleVish.setmSolid(mSolid);
+            posleVish.setS_KCl_p(Double.parseDouble(String.format("%.2f",(posleVish.getS_KCl_v()/ posleVish.getS_Check_v() * 100))));
+            posleVish.setS_NaCl_p(Double.parseDouble(String.format("%.2f",(posleVish.getS_NaCl_v()/ posleVish.getS_Check_v() * 100))));
+            posleVish.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",(posleVish.getS_CaSO4_v()/ posleVish.getS_Check_v() * 100))));
+            posleVish.setS_Check_p(100);
+
+            posleVish.setSlRatio(slRatio);
+            posleVish.setmLiquid(mLiquid);
+
+            posleVish.setL_KCl_p(Double.parseDouble(String.format("%.2f",(posleVish.getL_KCl_v()/ posleVish.getL_Check_v() * 100))));
+            posleVish.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(posleVish.getL_NaCl_v()/ posleVish.getL_Check_v() * 100))));
+            posleVish.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(posleVish.getL_CaSO4_v()/ posleVish.getL_Check_v() * 100))));
+            posleVish.setH2O_p(Double.parseDouble(String.format("%.2f",(posleVish.getH2O_v()/ posleVish.getL_Check_v() * 100 ))));
+            posleVish.setL_Check_p(100);
 
 
 
@@ -266,20 +298,21 @@ public class InputController {
 
 
             //Loading first sheet
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Pitanie.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
             Parent root = loader.load();
 
-            // Optionally pass values to PitanieController
-            PitanieController pitanieController = loader.getController();
-            pitanieController.setFloto(floto);
-            pitanieController.setFiltrat(filtrat);
-            pitanieController.updateAllLabels();
+            // Optionally pass values to MainController
+            MainController mainController = loader.getController();
+            mainController.setFloto(floto);
+            mainController.setFiltrat(filtrat);
+            mainController.setPosleVish(posleVish);
+            mainController.updateAllLabels();
 
 
             // Get the current stage and set the new scene
             Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Питание выщелачивания"); // Optional: change window title
+            stage.setTitle("KCL"); // Optional: change window title
             stage.show();
 
 
