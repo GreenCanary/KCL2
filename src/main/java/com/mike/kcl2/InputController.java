@@ -400,6 +400,33 @@ public class InputController {
             slivi.setL_Check_p(100);
 
 
+            //
+            redWater.setS_KCl_v(Double.parseDouble(String.format("%.2f", 0.00)));
+            redWater.setS_NaCl_v(Double.parseDouble(String.format("%.2f", 0.00)));
+            redWater.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.00)));
+            redWater.setS_Check_v(Double.parseDouble(String.format("%.2f", 0.00)));
+
+            redWater.setS_KCl_p(Double.parseDouble(String.format("%.2f",0.00)));
+            redWater.setS_NaCl_p(Double.parseDouble(String.format("%.2f",0.00)));
+            redWater.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",0.00)));
+            redWater.setS_Check_p(0.00);
+
+
+            redWater.setL_Check_v(Double.parseDouble(String.format("%.2f", inputValues.getmRedWater())));
+            redWater.setL_KCl_p(Double.parseDouble(String.format("%.2f",(inputValues.getRed_KCL_p()))));
+            redWater.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(inputValues.getRed_NaCl_p()))));
+            redWater.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(inputValues.getRed_CaSO4_p()))));
+            redWater.setH2O_p(Double.parseDouble(String.format("%.2f",(inputValues.getRed_H2O_p()))));
+            redWater.setL_Check_p(100);
+
+            redWater.setL_KCl_v(Double.parseDouble(String.format("%.2f", redWater.getL_KCl_p() * redWater.getL_Check_v() / 100 )));
+            redWater.setL_NaCl_v(Double.parseDouble(String.format("%.2f", redWater.getL_NaCl_p() * redWater.getL_Check_v() / 100 )));
+            redWater.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", redWater.getL_CaSO4_p() * redWater.getL_Check_v() / 100)));
+            redWater.setH2O_v(Double.parseDouble(String.format("%.2f", redWater.getH2O_p() * redWater.getL_Check_v() / 100)));
+
+
+
+
 
 
 

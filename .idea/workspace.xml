@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="obezvosh">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="red water tie">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/Main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744544610226</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="red water tie">
+      <option name="closed" value="true" />
+      <created>1744552398132</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1744552398132</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,6 +263,7 @@
     <MESSAGE value="Finisshing logic" />
     <MESSAGE value="penniy" />
     <MESSAGE value="obezvosh" />
-    <option name="LAST_COMMIT_MESSAGE" value="obezvosh" />
+    <MESSAGE value="red water tie" />
+    <option name="LAST_COMMIT_MESSAGE" value="red water tie" />
   </component>
 </project>
