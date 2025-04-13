@@ -265,9 +265,9 @@ public class InputController {
             //PosleVish section
 
             posleVish.setH2O_v(Double.parseDouble(String.format("%.2f", floto.getH2O_v() + filtrat.getH2O_v())));
-            posleVish.setL_KCl_v(Double.parseDouble(String.format("%.2f",floto.getL_KCl_p() + 14.9090)));
+            posleVish.setL_KCl_v(Double.parseDouble(String.format("%.2f",floto.getL_KCl_v() + 14.9090)));
             posleVish.setL_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getL_NaCl_v() + 24.8484)));
-            posleVish.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", floto.getL_CaSO4_p() + 0.496969)));
+            posleVish.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", floto.getL_CaSO4_v() + 0.496969)));
             posleVish.setL_Check_v(Double.parseDouble(String.format("%.2f", posleVish.getH2O_v() + posleVish.getL_KCl_v() + posleVish.getL_NaCl_v() + posleVish.getL_CaSO4_v())));
 
 
@@ -322,33 +322,29 @@ public class InputController {
             penniy.setL_Check_p(100);
 
             //Obezvosh
-            obezvozhivanie.setH2O_v(Double.parseDouble(String.format("%.2f", 13.29)));
-            obezvozhivanie.setL_KCl_v(Double.parseDouble(String.format("%.2f", 2.57)));
-            obezvozhivanie.setL_NaCl_v(Double.parseDouble(String.format("%.2f", 3.36)));
-            obezvozhivanie.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.08)));
+            obezvozhivanie.setL_KCl_v(Double.parseDouble(String.format("%.2f", posleVish.getL_KCl_v()+ 2.3591)));
+            obezvozhivanie.setL_NaCl_v(Double.parseDouble(String.format("%.2f", posleVish.getL_NaCl_v() + 3.9319)));
+            obezvozhivanie.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", posleVish.getL_CaSO4_v() + 0.4969)));
+            obezvozhivanie.setH2O_v(Double.parseDouble(String.format("%.2f", posleVish.getH2O_v() + 13.29)));
             obezvozhivanie.setL_Check_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getH2O_v() + obezvozhivanie.getL_KCl_v() + obezvozhivanie.getL_NaCl_v() + obezvozhivanie.getL_CaSO4_v())));
 
+            obezvozhivanie.setL_KCl_p(Double.parseDouble(String.format("%.2f",(12.00))));
+            obezvozhivanie.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(20.00))));
+            obezvozhivanie.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(0.40))));
+            obezvozhivanie.setH2O_p(Double.parseDouble(String.format("%.2f",(67.60))));
+            obezvozhivanie.setL_Check_p(100);
 
-            obezvozhivanie.setS_KCl_v(Double.parseDouble(String.format("%.2f", 14.66)));
-            obezvozhivanie.setS_NaCl_v(Double.parseDouble(String.format("%.2f",0.12)));
-            obezvozhivanie.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.43)));
+            obezvozhivanie.setS_KCl_v(Double.parseDouble(String.format("%.2f", posleVish.getS_KCl_v() + posleVish.getL_KCl_v() + penniy.getS_KCl_v() + penniy.getL_KCl_v() - obezvozhivanie.getL_KCl_v())));
+            obezvozhivanie.setS_NaCl_v(Double.parseDouble(String.format("%.2f",posleVish.getS_NaCl_v() + posleVish.getL_NaCl_v() + penniy.getS_NaCl_v() + penniy.getL_NaCl_v() - obezvozhivanie.getL_NaCl_v())));
+            obezvozhivanie.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", posleVish.getS_CaSO4_v() + posleVish.getL_CaSO4_v() + penniy.getS_CaSO4_v() + penniy.getL_CaSO4_v() - obezvozhivanie.getL_CaSO4_v())));
             obezvozhivanie.setS_Check_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getS_KCl_v()+ obezvozhivanie.getS_NaCl_v() + obezvozhivanie.getS_CaSO4_v())));
 
-
-            obezvozhivanie.setmSolid(mSolid);
             obezvozhivanie.setS_KCl_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getS_KCl_v()/ obezvozhivanie.getS_Check_v() * 100))));
             obezvozhivanie.setS_NaCl_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getS_NaCl_v()/ obezvozhivanie.getS_Check_v() * 100))));
             obezvozhivanie.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getS_CaSO4_v()/ obezvozhivanie.getS_Check_v() * 100))));
             obezvozhivanie.setS_Check_p(100);
 
-            obezvozhivanie.setSlRatio(slRatio);
-            obezvozhivanie.setmLiquid(mLiquid);
 
-            obezvozhivanie.setL_KCl_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getL_KCl_v()/ obezvozhivanie.getL_Check_v() * 100))));
-            obezvozhivanie.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getL_NaCl_v()/ obezvozhivanie.getL_Check_v() * 100))));
-            obezvozhivanie.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getL_CaSO4_v()/ obezvozhivanie.getL_Check_v() * 100))));
-            obezvozhivanie.setH2O_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getH2O_v()/ obezvozhivanie.getL_Check_v() * 100 ))));
-            obezvozhivanie.setL_Check_p(100);
 
 
 
