@@ -249,6 +249,29 @@ public class MainController {
     @FXML private Label label_H2O_p11;
     @FXML private Label label_H2O_v11;
 
+    //Result
+    @FXML private Label label_s_KCl_p12;
+    @FXML private Label label_s_NaCl_p12;
+    @FXML private Label label_s_CaSO4_p12;
+    @FXML private Label label_s_Check_p12;
+    @FXML private Label label_s_KCl_v12;
+    @FXML private Label label_s_NaCl_v12;
+    @FXML private Label label_s_CaSO4_v12;
+    @FXML private Label label_s_Check_v12;
+
+    @FXML private Label label_l_KCl_p12;
+    @FXML private Label label_l_NaCl_p12;
+    @FXML private Label label_l_CaSO4_p12;
+    @FXML private Label label_l_Check_p12;
+    @FXML private Label label_l_KCl_v12;
+    @FXML private Label label_l_NaCl_v12;
+    @FXML private Label label_l_CaSO4_v12;
+    @FXML private Label label_l_Check_v12;
+    @FXML private Label label_H2O_p12;
+    @FXML private Label label_H2O_v12;
+
+    @FXML private Label label_Izvlechenie;
+
     //floto
     @FXML private PieChart solidPie1;
     @FXML private PieChart liquidPie1;
@@ -282,6 +305,9 @@ public class MainController {
     //Fugat
     @FXML private PieChart solidPie11;
     @FXML private PieChart liquidPie11;
+    //Fugat
+    @FXML private PieChart solidPie12;
+    @FXML private PieChart liquidPie12;
 
     private Material floto;  // Declare floto object
     private Material filtrat;
@@ -294,6 +320,7 @@ public class MainController {
     private Material pitanieC;
     private Material kek;
     private Material fugat;
+    private Material result;
 
 
     // Add a setter method for floto
@@ -583,6 +610,31 @@ public class MainController {
         setLabelValue(label_H2O_v11, fugat.getH2O_v());
 
 
+        //result
+        setLabelPrecentage(label_s_KCl_p12, result.getS_KCl_p());
+        setLabelPrecentage(label_s_NaCl_p12, result.getS_NaCl_p());
+        setLabelPrecentage(label_s_CaSO4_p12, result.getS_CaSO4_p());
+        setLabelPrecentage(label_s_Check_p12, result.getS_Check_p());
+
+        setLabelValue(label_s_KCl_v12, result.getS_KCl_v());
+        setLabelValue(label_s_NaCl_v12, result.getS_NaCl_v());
+        setLabelValue(label_s_CaSO4_v12, result.getS_CaSO4_v());
+        setLabelValue(label_s_Check_v12, result.getS_Check_v());
+
+        setLabelPrecentage(label_l_KCl_p12, result.getL_KCl_p());
+        setLabelPrecentage(label_l_NaCl_p12, result.getL_NaCl_p());
+        setLabelPrecentage(label_l_CaSO4_p12, result.getL_CaSO4_p());
+        setLabelPrecentage(label_l_Check_p12, result.getL_Check_p());
+        setLabelPrecentage(label_H2O_p12, result.getH2O_p());
+
+        setLabelValue(label_l_KCl_v12, result.getL_KCl_v());
+        setLabelValue(label_l_NaCl_v12, result.getL_NaCl_v());
+        setLabelValue(label_l_CaSO4_v12, result.getL_CaSO4_v());
+        setLabelValue(label_l_Check_v12, result.getL_Check_v());
+        setLabelValue(label_H2O_v12, result.getH2O_v());
+
+        setLabelValue(label_Izvlechenie, result.getS_KCl_v()/obezvozhivanie.getS_KCl_v());
+
 
 
         solidPie1.setTitle("Флотоконцетрат (Твердая фаза)");
@@ -821,6 +873,27 @@ public class MainController {
                 new PieChart.Data(String.format("H₂O - %.2f%%", fugat.getH2O_p()), fugat.getH2O_p())
         );
         liquidPie11.setData(liquidPieChartData11);
+
+
+        solidPie12.setTitle("Сухие соли (Твердая фаза)");
+        solidPie12.setStyle("-fx-font-size: 12px;");
+        liquidPie12.setTitle("Сухие соли (Жидкая фаза)");
+        liquidPie12.setStyle("-fx-font-size: 12px;");
+
+        ObservableList<PieChart.Data> solidPieChartData12 = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", result.getS_KCl_p()), result.getS_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", result.getS_NaCl_p()), result.getS_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", result.getS_CaSO4_p()), result.getS_CaSO4_p())
+        );
+        solidPie12.setData(solidPieChartData12);
+
+        ObservableList<PieChart.Data> liquidPieChartData12 = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", result.getL_KCl_p()), result.getL_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", result.getL_NaCl_p()), result.getL_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", result.getL_CaSO4_p()), result.getL_CaSO4_p()),
+                new PieChart.Data(String.format("H₂O - %.2f%%", result.getH2O_p()), result.getH2O_p())
+        );
+        liquidPie12.setData(liquidPieChartData12);
     }
 
     public void MenuInputPopOut(ActionEvent actionEvent) {
@@ -880,5 +953,9 @@ public class MainController {
 
     public void setKek(Material kek) {
         this.kek = kek;
+    }
+
+    public void setResult(Material result) {
+        this.result = result;
     }
 }

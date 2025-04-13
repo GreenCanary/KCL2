@@ -190,6 +190,7 @@ public class InputController {
             pitanieC = new Material();
             kek = new Material();
             fugat = new Material();
+            result = new Material();
 
             // Set the values
             inputValues.setmRedWater(mRedWater);
@@ -493,13 +494,11 @@ public class InputController {
             fugat.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",(fugat.getS_CaSO4_v()/ fugat.getS_Check_v() * 100))));
             fugat.setS_Check_p(100);
 
-
             fugat.setL_KCl_p(Double.parseDouble(String.format("%.2f",(17.20))));
             fugat.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(10.00))));
             fugat.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(0.40))));
             fugat.setH2O_p(Double.parseDouble(String.format("%.2f",(72.40))));
             fugat.setL_Check_p(100);
-
 
             fugat.setL_KCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_KCl_v() - kek.getL_KCl_v())));
             fugat.setL_NaCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_NaCl_v() - kek.getL_NaCl_v())));
@@ -508,6 +507,28 @@ public class InputController {
             fugat.setL_Check_v(Double.parseDouble(String.format("%.2f", fugat.getH2O_v() + fugat.getL_KCl_v() + fugat.getL_NaCl_v() + fugat.getL_CaSO4_v())));
 
 
+            //result
+            result.setS_KCl_v(Double.parseDouble(String.format("%.2f", kek.getL_KCl_v() + kek.getS_KCl_v())));
+            result.setS_NaCl_v(Double.parseDouble(String.format("%.2f", kek.getL_NaCl_v() + kek.getS_NaCl_v())));
+            result.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", kek.getL_CaSO4_v() + kek.getS_CaSO4_v())));
+            result.setS_Check_v(Double.parseDouble(String.format("%.2f", result.getS_KCl_v()+ result.getS_NaCl_v() + result.getS_CaSO4_v())));
+
+            result.setS_KCl_p(Double.parseDouble(String.format("%.2f",(fugat.getS_KCl_v()/ fugat.getS_Check_v() * 100))));
+            result.setS_NaCl_p(Double.parseDouble(String.format("%.2f",(fugat.getS_NaCl_v()/ fugat.getS_Check_v() * 100))));
+            result.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",(fugat.getS_CaSO4_v()/ fugat.getS_Check_v() * 100))));
+            result.setS_Check_p(100);
+
+            result.setL_KCl_p(Double.parseDouble(String.format("%.2f",(0.00))));
+            result.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(0.00))));
+            result.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(0.00))));
+            result.setH2O_p(Double.parseDouble(String.format("%.2f",(0.00))));
+            result.setL_Check_p(0.00);
+
+            result.setL_KCl_v(Double.parseDouble(String.format("%.2f", 0.00)));
+            result.setL_NaCl_v(Double.parseDouble(String.format("%.2f", 0.00)));
+            result.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.00)));
+            result.setH2O_v(Double.parseDouble(String.format("%.2f", 0.00)));
+            result.setL_Check_v(Double.parseDouble(String.format("%.2f", 0.00)));
 
 
 
@@ -528,6 +549,7 @@ public class InputController {
             mainController.setPitanieC(pitanieC);
             mainController.setKek(kek);
             mainController.setFugat(fugat);
+            mainController.setResult(result);
             mainController.updateAllLabels();
 
 
