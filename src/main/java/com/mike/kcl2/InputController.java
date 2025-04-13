@@ -22,7 +22,7 @@ public class InputController {
     private Material floto;
     private Material filtrat;
     private Material posleVish;
-    private Material penniyProduct;
+    private Material penniy;
     private Material obezvozhivanie;
     private Material slivi;
     private Material peski;
@@ -182,6 +182,7 @@ public class InputController {
             floto = new Material();
             filtrat = new Material();
             posleVish = new Material();
+            penniy = new Material();
 
             // Set the values
             inputValues.setmRedWater(mRedWater);
@@ -290,6 +291,34 @@ public class InputController {
             posleVish.setH2O_p(Double.parseDouble(String.format("%.2f",(posleVish.getH2O_v()/ posleVish.getL_Check_v() * 100 ))));
             posleVish.setL_Check_p(100);
 
+            //Penniy
+            penniy.setH2O_v(Double.parseDouble(String.format("%.2f", 13.29)));
+            penniy.setL_KCl_v(Double.parseDouble(String.format("%.2f", 2.57)));
+            penniy.setL_NaCl_v(Double.parseDouble(String.format("%.2f", 3.36)));
+            penniy.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.08)));
+            penniy.setL_Check_v(Double.parseDouble(String.format("%.2f", penniy.getH2O_v() + penniy.getL_KCl_v() + penniy.getL_NaCl_v() + penniy.getL_CaSO4_v())));
+
+
+            penniy.setS_KCl_v(Double.parseDouble(String.format("%.2f", 14.66)));
+            penniy.setS_NaCl_v(Double.parseDouble(String.format("%.2f",0.12)));
+            penniy.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.43)));
+            penniy.setS_Check_v(Double.parseDouble(String.format("%.2f", penniy.getS_KCl_v()+ penniy.getS_NaCl_v() + penniy.getS_CaSO4_v())));
+
+
+            penniy.setmSolid(mSolid);
+            penniy.setS_KCl_p(Double.parseDouble(String.format("%.2f",(penniy.getS_KCl_v()/ penniy.getS_Check_v() * 100))));
+            penniy.setS_NaCl_p(Double.parseDouble(String.format("%.2f",(penniy.getS_NaCl_v()/ penniy.getS_Check_v() * 100))));
+            penniy.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",(penniy.getS_CaSO4_v()/ penniy.getS_Check_v() * 100))));
+            penniy.setS_Check_p(100);
+
+            penniy.setSlRatio(slRatio);
+            penniy.setmLiquid(mLiquid);
+
+            penniy.setL_KCl_p(Double.parseDouble(String.format("%.2f",(penniy.getL_KCl_v()/ penniy.getL_Check_v() * 100))));
+            penniy.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(penniy.getL_NaCl_v()/ penniy.getL_Check_v() * 100))));
+            penniy.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(penniy.getL_CaSO4_v()/ penniy.getL_Check_v() * 100))));
+            penniy.setH2O_p(Double.parseDouble(String.format("%.2f",(penniy.getH2O_v()/ penniy.getL_Check_v() * 100 ))));
+            penniy.setL_Check_p(100);
 
 
 
@@ -306,6 +335,7 @@ public class InputController {
             mainController.setFloto(floto);
             mainController.setFiltrat(filtrat);
             mainController.setPosleVish(posleVish);
+            mainController.setPenniy(penniy);
             mainController.updateAllLabels();
 
 

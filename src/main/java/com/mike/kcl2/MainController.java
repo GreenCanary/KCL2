@@ -113,6 +113,7 @@ public class MainController {
     private Material filtrat;
     private Material posleVish;
     private Material penniy;
+    private Material obezvozhivanie;
 
     // Add a setter method for floto
     public void setFloto(Material floto) {
@@ -127,6 +128,9 @@ public class MainController {
 
     public void setPenniy(Material penniy) {
         this.penniy = penniy;
+    }
+    public void setObezvozhivanie(Material obezvozhivanie) {
+        this.obezvozhivanie = obezvozhivanie;
     }
 
 
@@ -215,6 +219,31 @@ public class MainController {
 
 
 
+        setLabelPrecentage(label_s_KCl_p4, penniy.getS_KCl_p());
+        setLabelPrecentage(label_s_NaCl_p4, penniy.getS_NaCl_p());
+        setLabelPrecentage(label_s_CaSO4_p4, penniy.getS_CaSO4_p());
+        setLabelPrecentage(label_s_Check_p4, penniy.getS_Check_p());
+
+        setLabelValue(label_s_KCl_v4, penniy.getS_KCl_v());
+        setLabelValue(label_s_NaCl_v4, penniy.getS_NaCl_v());
+        setLabelValue(label_s_CaSO4_v4, penniy.getS_CaSO4_v());
+        setLabelValue(label_s_Check_v4, penniy.getS_Check_v());
+
+        setLabelPrecentage(label_l_KCl_p4, penniy.getL_KCl_p());
+        setLabelPrecentage(label_l_NaCl_p4, penniy.getL_NaCl_p());
+        setLabelPrecentage(label_l_CaSO4_p4, penniy.getL_CaSO4_p());
+        setLabelPrecentage(label_l_Check_p4, penniy.getL_Check_p());
+        setLabelPrecentage(label_H2O_p4, penniy.getH2O_p());
+
+        setLabelValue(label_l_KCl_v4, penniy.getL_KCl_v());
+        setLabelValue(label_l_NaCl_v4, penniy.getL_NaCl_v());
+        setLabelValue(label_l_CaSO4_v4, penniy.getL_CaSO4_v());
+        setLabelValue(label_l_Check_v4, penniy.getL_Check_v());
+        setLabelValue(label_H2O_v4, penniy.getH2O_v());
+
+
+
+
 
         solidPie1.setTitle("Флотоконцетрат (Твердая фаза)");
         solidPie1.setStyle("-fx-font-size: 12px;");
@@ -278,6 +307,26 @@ public class MainController {
         );
         liquidPie3.setData(liquidPieChartData3);
 
+
+        solidPie4.setTitle("Пенный продукт (Твердая фаза)");
+        solidPie4.setStyle("-fx-font-size: 12px;");
+        liquidPie4.setTitle("Пенный продукт (Жидкая фаза)");
+        liquidPie4.setStyle("-fx-font-size: 12px;");
+
+        ObservableList<PieChart.Data> solidPieChartData4 = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", penniy.getS_KCl_p()), penniy.getS_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", penniy.getS_NaCl_p()), penniy.getS_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", penniy.getS_CaSO4_p()), penniy.getS_CaSO4_p())
+        );
+        solidPie4.setData(solidPieChartData4);
+
+        ObservableList<PieChart.Data> liquidPieChartData4 = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", penniy.getL_KCl_p()), penniy.getL_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", posleVish.getL_NaCl_p()), penniy.getL_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", penniy.getL_CaSO4_p()), penniy.getL_CaSO4_p()),
+                new PieChart.Data(String.format("H₂O - %.2f%%", penniy.getH2O_p()), penniy.getH2O_p())
+        );
+        liquidPie4.setData(liquidPieChartData4);
 
     }
 
