@@ -24,8 +24,8 @@ public class InputController {
     private Material posleVish;
     private Material penniy;
     private Material obezvozhivanie;
-    private Material slivi;
     private Material peski;
+    private Material slivi;
     private Material redWater;
     private Material pitanieC;
     private Material fugat;
@@ -184,6 +184,9 @@ public class InputController {
             posleVish = new Material();
             penniy = new Material();
             obezvozhivanie = new Material();
+            peski = new Material();
+            slivi = new Material();
+            redWater = new Material();
 
             // Set the values
             inputValues.setmRedWater(mRedWater);
@@ -345,6 +348,57 @@ public class InputController {
             obezvozhivanie.setS_Check_p(100);
 
 
+            //Peski
+            peski.setS_KCl_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getS_KCl_v() * 0.9337)));
+            peski.setS_NaCl_v(Double.parseDouble(String.format("%.2f",obezvozhivanie.getS_NaCl_v() * 0.9254)));
+            peski.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getS_CaSO4_v() * 0.8498)));
+            peski.setS_Check_v(Double.parseDouble(String.format("%.2f", peski.getS_KCl_v()+ peski.getS_NaCl_v() + peski.getS_CaSO4_v())));
+
+            peski.setS_KCl_p(Double.parseDouble(String.format("%.2f",(peski.getS_KCl_v()/ peski.getS_Check_v() * 100))));
+            peski.setS_NaCl_p(Double.parseDouble(String.format("%.2f",(peski.getS_NaCl_v()/ peski.getS_Check_v() * 100))));
+            peski.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",(peski.getS_CaSO4_v()/ peski.getS_Check_v() * 100))));
+            peski.setS_Check_p(100);
+
+            peski.setL_KCl_p(Double.parseDouble(String.format("%.2f",(12.00))));
+            peski.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(20.00))));
+            peski.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(0.40))));
+            peski.setH2O_p(Double.parseDouble(String.format("%.2f",(67.60))));
+            peski.setL_Check_p(100);
+
+            peski.setL_Check_v(Double.parseDouble(String.format("%.2f", peski.getS_Check_v() * 0.5)));
+            peski.setL_KCl_v(Double.parseDouble(String.format("%.2f", peski.getL_Check_v() * peski.getL_KCl_p() / 100)));
+            peski.setL_NaCl_v(Double.parseDouble(String.format("%.2f", peski.getL_Check_v() * peski.getL_NaCl_p() / 100)));
+            peski.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", peski.getL_Check_v() * peski.getL_CaSO4_p() / 100)));
+            peski.setH2O_v(Double.parseDouble(String.format("%.2f", peski.getL_Check_v() * peski.getH2O_p() / 100)));
+
+
+
+
+
+
+            //Slivi
+            slivi.setS_KCl_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getS_KCl_v() - peski.getS_KCl_v())));
+            slivi.setS_NaCl_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getS_NaCl_v() - peski.getS_NaCl_v())));
+            slivi.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getS_CaSO4_v() - peski.getS_CaSO4_v())));
+            slivi.setS_Check_v(Double.parseDouble(String.format("%.2f", slivi.getS_KCl_v()+ slivi.getS_NaCl_v() + slivi.getS_CaSO4_v())));
+
+            slivi.setS_KCl_p(Double.parseDouble(String.format("%.2f",(slivi.getS_KCl_v()/ slivi.getS_Check_v() * 100))));
+            slivi.setS_NaCl_p(Double.parseDouble(String.format("%.2f",(slivi.getS_NaCl_v()/ slivi.getS_Check_v() * 100))));
+            slivi.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",(slivi.getS_CaSO4_v()/ slivi.getS_Check_v() * 100))));
+            slivi.setS_Check_p(100);
+
+            slivi.setL_KCl_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getL_KCl_v() - peski.getL_KCl_v())));
+            slivi.setL_NaCl_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getL_NaCl_v() - peski.getL_NaCl_v())));
+            slivi.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getL_CaSO4_v() - peski.getL_CaSO4_v())));
+            slivi.setH2O_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getH2O_v() - peski.getH2O_v())));
+            slivi.setL_Check_v(Double.parseDouble(String.format("%.2f", slivi.getH2O_v() + slivi.getL_KCl_v() + slivi.getL_NaCl_v() + slivi.getL_CaSO4_v())));
+
+            slivi.setL_KCl_p(Double.parseDouble(String.format("%.2f",(12.00))));
+            slivi.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(20.00))));
+            slivi.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(0.40))));
+            slivi.setH2O_p(Double.parseDouble(String.format("%.2f",(67.60))));
+            slivi.setL_Check_p(100);
+
 
 
 
@@ -361,6 +415,9 @@ public class InputController {
             mainController.setPosleVish(posleVish);
             mainController.setPenniy(penniy);
             mainController.setObezvozhivanie(obezvozhivanie);
+            mainController.setPeski(peski);
+            mainController.setSlivi(slivi);
+            mainController.setRedWater(redWater);
             mainController.updateAllLabels();
 
 
