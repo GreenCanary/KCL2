@@ -206,6 +206,49 @@ public class MainController {
     @FXML private Label label_H2O_p9;
     @FXML private Label label_H2O_v9;
 
+    //Kek
+    @FXML private Label label_s_KCl_p10;
+    @FXML private Label label_s_NaCl_p10;
+    @FXML private Label label_s_CaSO4_p10;
+    @FXML private Label label_s_Check_p10;
+    @FXML private Label label_s_KCl_v10;
+    @FXML private Label label_s_NaCl_v10;
+    @FXML private Label label_s_CaSO4_v10;
+    @FXML private Label label_s_Check_v10;
+
+    @FXML private Label label_l_KCl_p10;
+    @FXML private Label label_l_NaCl_p10;
+    @FXML private Label label_l_CaSO4_p10;
+    @FXML private Label label_l_Check_p10;
+    @FXML private Label label_l_KCl_v10;
+    @FXML private Label label_l_NaCl_v10;
+    @FXML private Label label_l_CaSO4_v10;
+    @FXML private Label label_l_Check_v10;
+    @FXML private Label label_H2O_p10;
+    @FXML private Label label_H2O_v10;
+
+
+    //Fugat
+    @FXML private Label label_s_KCl_p11;
+    @FXML private Label label_s_NaCl_p11;
+    @FXML private Label label_s_CaSO4_p11;
+    @FXML private Label label_s_Check_p11;
+    @FXML private Label label_s_KCl_v11;
+    @FXML private Label label_s_NaCl_v11;
+    @FXML private Label label_s_CaSO4_v11;
+    @FXML private Label label_s_Check_v11;
+
+    @FXML private Label label_l_KCl_p11;
+    @FXML private Label label_l_NaCl_p11;
+    @FXML private Label label_l_CaSO4_p11;
+    @FXML private Label label_l_Check_p11;
+    @FXML private Label label_l_KCl_v11;
+    @FXML private Label label_l_NaCl_v11;
+    @FXML private Label label_l_CaSO4_v11;
+    @FXML private Label label_l_Check_v11;
+    @FXML private Label label_H2O_p11;
+    @FXML private Label label_H2O_v11;
+
     //floto
     @FXML private PieChart solidPie1;
     @FXML private PieChart liquidPie1;
@@ -233,6 +276,13 @@ public class MainController {
     //RedWater
     @FXML private PieChart solidPie9;
     @FXML private PieChart liquidPie9;
+    //Kek
+    @FXML private PieChart solidPie10;
+    @FXML private PieChart liquidPie10;
+    //Fugat
+    @FXML private PieChart solidPie11;
+    @FXML private PieChart liquidPie11;
+
     private Material floto;  // Declare floto object
     private Material filtrat;
     private Material posleVish;
@@ -242,6 +292,9 @@ public class MainController {
     private Material slivi;
     private Material redWater;
     private Material pitanieC;
+    private Material kek;
+    private Material fugat;
+
 
     // Add a setter method for floto
 
@@ -457,7 +510,7 @@ public class MainController {
 
 
 
-
+        //pitanieC
         setLabelPrecentage(label_s_KCl_p9, pitanieC.getS_KCl_p());
         setLabelPrecentage(label_s_NaCl_p9, pitanieC.getS_NaCl_p());
         setLabelPrecentage(label_s_CaSO4_p9, pitanieC.getS_CaSO4_p());
@@ -482,7 +535,52 @@ public class MainController {
 
 
 
+        //kek
+        setLabelPrecentage(label_s_KCl_p10, kek.getS_KCl_p());
+        setLabelPrecentage(label_s_NaCl_p10, kek.getS_NaCl_p());
+        setLabelPrecentage(label_s_CaSO4_p10, kek.getS_CaSO4_p());
+        setLabelPrecentage(label_s_Check_p10, kek.getS_Check_p());
 
+        setLabelValue(label_s_KCl_v10, kek.getS_KCl_v());
+        setLabelValue(label_s_NaCl_v10, kek.getS_NaCl_v());
+        setLabelValue(label_s_CaSO4_v10, kek.getS_CaSO4_v());
+        setLabelValue(label_s_Check_v10, kek.getS_Check_v());
+
+        setLabelPrecentage(label_l_KCl_p10, kek.getL_KCl_p());
+        setLabelPrecentage(label_l_NaCl_p10, kek.getL_NaCl_p());
+        setLabelPrecentage(label_l_CaSO4_p10, kek.getL_CaSO4_p());
+        setLabelPrecentage(label_l_Check_p10, kek.getL_Check_p());
+        setLabelPrecentage(label_H2O_p10, kek.getH2O_p());
+
+        setLabelValue(label_l_KCl_v10, kek.getL_KCl_v());
+        setLabelValue(label_l_NaCl_v10, kek.getL_NaCl_v());
+        setLabelValue(label_l_CaSO4_v10, kek.getL_CaSO4_v());
+        setLabelValue(label_l_Check_v10, kek.getL_Check_v());
+        setLabelValue(label_H2O_v10, kek.getH2O_v());
+
+
+        //fugat
+        setLabelPrecentage(label_s_KCl_p11, fugat.getS_KCl_p());
+        setLabelPrecentage(label_s_NaCl_p11, fugat.getS_NaCl_p());
+        setLabelPrecentage(label_s_CaSO4_p11, fugat.getS_CaSO4_p());
+        setLabelPrecentage(label_s_Check_p11, fugat.getS_Check_p());
+
+        setLabelValue(label_s_KCl_v11, fugat.getS_KCl_v());
+        setLabelValue(label_s_NaCl_v11, fugat.getS_NaCl_v());
+        setLabelValue(label_s_CaSO4_v11, fugat.getS_CaSO4_v());
+        setLabelValue(label_s_Check_v11, fugat.getS_Check_v());
+
+        setLabelPrecentage(label_l_KCl_p11, fugat.getL_KCl_p());
+        setLabelPrecentage(label_l_NaCl_p11, fugat.getL_NaCl_p());
+        setLabelPrecentage(label_l_CaSO4_p11, fugat.getL_CaSO4_p());
+        setLabelPrecentage(label_l_Check_p11, fugat.getL_Check_p());
+        setLabelPrecentage(label_H2O_p11, fugat.getH2O_p());
+
+        setLabelValue(label_l_KCl_v11, fugat.getL_KCl_v());
+        setLabelValue(label_l_NaCl_v11, fugat.getL_NaCl_v());
+        setLabelValue(label_l_CaSO4_v11, fugat.getL_CaSO4_v());
+        setLabelValue(label_l_Check_v11, fugat.getL_Check_v());
+        setLabelValue(label_H2O_v11, fugat.getH2O_v());
 
 
 
@@ -655,6 +753,74 @@ public class MainController {
                 new PieChart.Data(String.format("H₂O - %.2f%%", redWater.getH2O_p()), redWater.getH2O_p())
         );
         liquidPie8.setData(liquidPieChartData8);
+
+
+
+        solidPie9.setTitle("Питание центрифуг (Твердая фаза)");
+        solidPie9.setStyle("-fx-font-size: 12px;");
+        liquidPie9.setTitle("Питание центрифуг (Жидкая фаза)");
+        liquidPie9.setStyle("-fx-font-size: 12px;");
+
+        ObservableList<PieChart.Data> solidPieChartData9 = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", pitanieC.getS_KCl_p()), pitanieC.getS_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", pitanieC.getS_NaCl_p()), pitanieC.getS_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", pitanieC.getS_CaSO4_p()), pitanieC.getS_CaSO4_p())
+        );
+        solidPie9.setData(solidPieChartData9);
+
+        ObservableList<PieChart.Data> liquidPieChartData9 = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", pitanieC.getL_KCl_p()), pitanieC.getL_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", pitanieC.getL_NaCl_p()), pitanieC.getL_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", pitanieC.getL_CaSO4_p()), pitanieC.getL_CaSO4_p()),
+                new PieChart.Data(String.format("H₂O - %.2f%%", pitanieC.getH2O_p()), pitanieC.getH2O_p())
+        );
+        liquidPie9.setData(liquidPieChartData9);
+
+
+
+        solidPie10.setTitle("Кек (Твердая фаза)");
+        solidPie10.setStyle("-fx-font-size: 12px;");
+        liquidPie10.setTitle("Кек (Жидкая фаза)");
+        liquidPie10.setStyle("-fx-font-size: 12px;");
+
+        ObservableList<PieChart.Data> solidPieChartData10 = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", kek.getS_KCl_p()), kek.getS_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", kek.getS_NaCl_p()), kek.getS_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", kek.getS_CaSO4_p()), kek.getS_CaSO4_p())
+        );
+        solidPie10.setData(solidPieChartData10);
+
+        ObservableList<PieChart.Data> liquidPieChartData10 = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", kek.getL_KCl_p()), kek.getL_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", kek.getL_NaCl_p()), kek.getL_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", kek.getL_CaSO4_p()), kek.getL_CaSO4_p()),
+                new PieChart.Data(String.format("H₂O - %.2f%%", kek.getH2O_p()), kek.getH2O_p())
+        );
+        liquidPie10.setData(liquidPieChartData10);
+
+
+
+
+
+        solidPie11.setTitle("Фугат (Твердая фаза)");
+        solidPie11.setStyle("-fx-font-size: 12px;");
+        liquidPie11.setTitle("Фугат (Жидкая фаза)");
+        liquidPie11.setStyle("-fx-font-size: 12px;");
+
+        ObservableList<PieChart.Data> solidPieChartData11 = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", fugat.getS_KCl_p()), fugat.getS_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", fugat.getS_NaCl_p()), fugat.getS_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", fugat.getS_CaSO4_p()), fugat.getS_CaSO4_p())
+        );
+        solidPie11.setData(solidPieChartData11);
+
+        ObservableList<PieChart.Data> liquidPieChartData11 = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", fugat.getL_KCl_p()), fugat.getL_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", fugat.getL_NaCl_p()), fugat.getL_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", fugat.getL_CaSO4_p()), fugat.getL_CaSO4_p()),
+                new PieChart.Data(String.format("H₂O - %.2f%%", fugat.getH2O_p()), fugat.getH2O_p())
+        );
+        liquidPie11.setData(liquidPieChartData11);
     }
 
     public void MenuInputPopOut(ActionEvent actionEvent) {
@@ -702,5 +868,17 @@ public class MainController {
 
     public void setRedWater(Material redWater) {
         this.redWater = redWater;
+    }
+
+    public void setPitanieC(Material pitanieC) {
+        this.pitanieC = pitanieC;
+    }
+
+    public void setFugat(Material fugat) {
+        this.fugat = fugat;
+    }
+
+    public void setKek(Material kek) {
+        this.kek = kek;
     }
 }
