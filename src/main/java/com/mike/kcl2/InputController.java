@@ -183,6 +183,7 @@ public class InputController {
             filtrat = new Material();
             posleVish = new Material();
             penniy = new Material();
+            obezvozhivanie = new Material();
 
             // Set the values
             inputValues.setmRedWater(mRedWater);
@@ -320,7 +321,34 @@ public class InputController {
             penniy.setH2O_p(Double.parseDouble(String.format("%.2f",(penniy.getH2O_v()/ penniy.getL_Check_v() * 100 ))));
             penniy.setL_Check_p(100);
 
+            //Obezvosh
+            obezvozhivanie.setH2O_v(Double.parseDouble(String.format("%.2f", 13.29)));
+            obezvozhivanie.setL_KCl_v(Double.parseDouble(String.format("%.2f", 2.57)));
+            obezvozhivanie.setL_NaCl_v(Double.parseDouble(String.format("%.2f", 3.36)));
+            obezvozhivanie.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.08)));
+            obezvozhivanie.setL_Check_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getH2O_v() + obezvozhivanie.getL_KCl_v() + obezvozhivanie.getL_NaCl_v() + obezvozhivanie.getL_CaSO4_v())));
 
+
+            obezvozhivanie.setS_KCl_v(Double.parseDouble(String.format("%.2f", 14.66)));
+            obezvozhivanie.setS_NaCl_v(Double.parseDouble(String.format("%.2f",0.12)));
+            obezvozhivanie.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.43)));
+            obezvozhivanie.setS_Check_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getS_KCl_v()+ obezvozhivanie.getS_NaCl_v() + obezvozhivanie.getS_CaSO4_v())));
+
+
+            obezvozhivanie.setmSolid(mSolid);
+            obezvozhivanie.setS_KCl_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getS_KCl_v()/ obezvozhivanie.getS_Check_v() * 100))));
+            obezvozhivanie.setS_NaCl_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getS_NaCl_v()/ obezvozhivanie.getS_Check_v() * 100))));
+            obezvozhivanie.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getS_CaSO4_v()/ obezvozhivanie.getS_Check_v() * 100))));
+            obezvozhivanie.setS_Check_p(100);
+
+            obezvozhivanie.setSlRatio(slRatio);
+            obezvozhivanie.setmLiquid(mLiquid);
+
+            obezvozhivanie.setL_KCl_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getL_KCl_v()/ obezvozhivanie.getL_Check_v() * 100))));
+            obezvozhivanie.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getL_NaCl_v()/ obezvozhivanie.getL_Check_v() * 100))));
+            obezvozhivanie.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getL_CaSO4_v()/ obezvozhivanie.getL_Check_v() * 100))));
+            obezvozhivanie.setH2O_p(Double.parseDouble(String.format("%.2f",(obezvozhivanie.getH2O_v()/ obezvozhivanie.getL_Check_v() * 100 ))));
+            obezvozhivanie.setL_Check_p(100);
 
 
 
@@ -336,6 +364,7 @@ public class InputController {
             mainController.setFiltrat(filtrat);
             mainController.setPosleVish(posleVish);
             mainController.setPenniy(penniy);
+            mainController.setObezvozhivanie(obezvozhivanie);
             mainController.updateAllLabels();
 
 
