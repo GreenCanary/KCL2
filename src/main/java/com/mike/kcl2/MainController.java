@@ -633,7 +633,7 @@ public class MainController {
         setLabelValue(label_l_Check_v12, result.getL_Check_v());
         setLabelValue(label_H2O_v12, result.getH2O_v());
 
-        setLabelValue(label_Izvlechenie, result.getS_KCl_v()/obezvozhivanie.getS_KCl_v());
+        setLabelValue(label_Izvlechenie, result.getS_KCl_v()/floto.getS_KCl_v());
 
 
 
