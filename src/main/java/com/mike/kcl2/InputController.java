@@ -513,9 +513,9 @@ public class InputController {
             result.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", kek.getL_CaSO4_v() + kek.getS_CaSO4_v())));
             result.setS_Check_v(Double.parseDouble(String.format("%.2f", result.getS_KCl_v()+ result.getS_NaCl_v() + result.getS_CaSO4_v())));
 
-            result.setS_KCl_p(Double.parseDouble(String.format("%.2f",(fugat.getS_KCl_v()/ fugat.getS_Check_v() * 100))));
-            result.setS_NaCl_p(Double.parseDouble(String.format("%.2f",(fugat.getS_NaCl_v()/ fugat.getS_Check_v() * 100))));
-            result.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",(fugat.getS_CaSO4_v()/ fugat.getS_Check_v() * 100))));
+            result.setS_KCl_p(Double.parseDouble(String.format("%.2f",(result.getS_KCl_v()/ result.getS_Check_v() * 100))));
+            result.setS_NaCl_p(Double.parseDouble(String.format("%.2f",(result.getS_NaCl_v()/ result.getS_Check_v() * 100))));
+            result.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",(result.getS_CaSO4_v()/ result.getS_Check_v() * 100))));
             result.setS_Check_p(100);
 
             result.setL_KCl_p(Double.parseDouble(String.format("%.2f",(0.00))));
