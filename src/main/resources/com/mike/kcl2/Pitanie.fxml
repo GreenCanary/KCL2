@@ -126,8 +126,8 @@
               </AnchorPane>
             <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
                      <children>
-                        <PieChart fx:id="solidPie1" layoutX="45.0" layoutY="26.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="289.0" prefWidth="265.0" style="-fx-border-color: black;" />
-                        <PieChart fx:id="liquidPie1" layoutX="45.0" layoutY="370.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="289.0" prefWidth="265.0" style="-fx-border-color: black;" />
+                        <PieChart fx:id="PieChart" layoutX="45.0" layoutY="26.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="289.0" prefWidth="265.0" style="-fx-border-color: black;" />
+                        <PieChart fx:id="BarChart" layoutX="45.0" layoutY="370.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="289.0" prefWidth="265.0" style="-fx-border-color: black;" />
                         <PieChart fx:id="solidPie2" layoutX="365.0" layoutY="25.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="289.0" prefWidth="265.0" style="-fx-border-color: black;" />
                         <PieChart fx:id="liquidPie2" layoutX="365.0" layoutY="370.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="289.0" prefWidth="265.0" style="-fx-border-color: black;" />
                      </children>
