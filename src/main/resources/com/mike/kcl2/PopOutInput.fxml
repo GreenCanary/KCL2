@@ -88,43 +88,37 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="241.0" text="KCl, % : " GridPane.rowIndex="2">
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="241.0" text="KCl, % : " GridPane.rowIndex="1">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="240.0" text="NaCl, % :" GridPane.rowIndex="3">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="240.0" text="NaCl, % :" GridPane.rowIndex="2">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="240.0" text="CaSO4, %:" GridPane.rowIndex="4">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="240.0" text="CaSO4, %:" GridPane.rowIndex="3">
                      <font>
                         <Font name="Arial" size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="244.0" text="H2O, %:" GridPane.rowIndex="5">
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="244.0" text="H2O, %:" GridPane.rowIndex="4">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
                   <TextField fx:id="mTotalTextField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <TextField fx:id="slRatioTextField" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                  <TextField fx:id="KClRedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="NaClRedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="CaSO4RedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField fx:id="H2ORedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="KClRedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="NaClRedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="CaSO4RedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="H2ORedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="491.0" text="Красная вода" GridPane.columnSpan="2">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="254.0" text="m - масса:" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="mRedWaterTextField" layoutX="251.0" layoutY="26.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label alignment="CENTER" layoutX="10.0" layoutY="98.0" prefHeight="17.0" prefWidth="491.0" text="Флотоконцетрат" GridPane.columnIndex="2" GridPane.columnSpan="2">
                      <font>
                         <Font name="System Bold" size="16.0" />
