@@ -45,6 +45,7 @@ public class InputController {
     @FXML private TextField CaSO4SolidTextField;
     @FXML private TextField slRatioTextField;
     @FXML private TextField slRatioTextField1;
+    @FXML private TextField moistTextField;
 
 
 
@@ -67,6 +68,7 @@ public class InputController {
         prefs.put("CaSO4Solid", CaSO4SolidTextField.getText());
         prefs.put("slRatio", slRatioTextField.getText());
         prefs.put("slRatio1", slRatioTextField1.getText());
+        prefs.put("moist", moistTextField.getText());
     }
     @FXML
     public void LoadMenuItemClicked() {
@@ -82,6 +84,7 @@ public class InputController {
         CaSO4SolidTextField.setText(prefs.get("CaSO4Solid", ""));
         slRatioTextField.setText(prefs.get("slRatio", ""));
         slRatioTextField1.setText(prefs.get("slRatio1", ""));
+        moistTextField.setText(prefs.get("moist", ""));
     }
     @FXML
     private void DeleteMenuItemClicked(ActionEvent event) {
@@ -112,6 +115,7 @@ public class InputController {
         CaSO4SolidTextField.clear();
         slRatioTextField.clear();
         slRatioTextField1.clear();
+        moistTextField.clear();
     }
 
 
@@ -143,6 +147,7 @@ public class InputController {
             double red_H2O_p = Double.parseDouble(H2ORedWaterTextField.getText());
 
             // Read and parse solid input fields and store in the corresponding properties
+            double moist = Double.parseDouble(moistTextField.getText());
             double slRatio = Double.parseDouble(slRatioTextField.getText());
             double slRatio1 = Double.parseDouble(slRatioTextField1.getText());
             double mTotal = Double.parseDouble(mTotalTextField.getText());
@@ -459,20 +464,6 @@ public class InputController {
 
 
             //kek
-            kek.setL_KCl_p(Double.parseDouble(String.format("%.2f",(17.20))));
-            kek.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(10.00))));
-            kek.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(0.40))));
-            kek.setH2O_p(Double.parseDouble(String.format("%.2f",(72.40))));
-            kek.setL_Check_p(100);
-
-
-            kek.setL_KCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_KCl_v()*0.0685)));
-            kek.setL_NaCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_NaCl_v()*0.0685)));
-            kek.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_CaSO4_v()*0.0685)));
-            kek.setH2O_v(Double.parseDouble(String.format("%.2f", pitanieC.getH2O_v()*0.0685)));
-            kek.setL_Check_v(Double.parseDouble(String.format("%.2f", kek.getH2O_v() + kek.getL_KCl_v() + kek.getL_NaCl_v() + kek.getL_CaSO4_v())));
-
-
             kek.setS_KCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getS_KCl_v()*0.9902)));
             kek.setS_NaCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getS_NaCl_v()*0.9927)));
             kek.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", pitanieC.getS_CaSO4_v()*0.9909)));
@@ -482,6 +473,20 @@ public class InputController {
             kek.setS_NaCl_p(Double.parseDouble(String.format("%.2f",(kek.getS_NaCl_v()/ kek.getS_Check_v() * 100))));
             kek.setS_CaSO4_p(Double.parseDouble(String.format("%.2f",(kek.getS_CaSO4_v()/ kek.getS_Check_v() * 100))));
             kek.setS_Check_p(100);
+
+
+            kek.setL_KCl_p(Double.parseDouble(String.format("%.2f",(14.50))));
+            kek.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(15.00))));
+            kek.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(0.40))));
+            kek.setH2O_p(Double.parseDouble(String.format("%.2f",(70.10))));
+            kek.setL_Check_p(100);
+
+            kek.setL_KCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_KCl_v()*0.0685)));
+            kek.setL_NaCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_NaCl_v()*0.0685)));
+            kek.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_CaSO4_v()*0.0685)));
+            kek.setH2O_v(Double.parseDouble(String.format("%.2f", kek.getS_Check_v() * moist / 100)));
+            kek.setL_Check_v(Double.parseDouble(String.format("%.2f", kek.getH2O_v() + kek.getL_KCl_v() + kek.getL_NaCl_v() + kek.getL_CaSO4_v())));
+
 
 
 
