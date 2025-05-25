@@ -81,7 +81,7 @@ public class InputController {
         NaClSolidTextField.setText(prefs.get("NaClSolid", ""));
         CaSO4SolidTextField.setText(prefs.get("CaSO4Solid", ""));
         slRatioTextField.setText(prefs.get("slRatio", ""));
-        slRatioTextField.setText(prefs.get("slRatio1", ""));
+        slRatioTextField1.setText(prefs.get("slRatio1", ""));
     }
     @FXML
     private void DeleteMenuItemClicked(ActionEvent event) {
@@ -98,6 +98,7 @@ public class InputController {
         prefs.remove("NaClSolid");
         prefs.remove("CaSO4Solid");
         prefs.remove("slRatio");
+        prefs.remove("slRatio1");
 
         // Clear text fields
         KClRedWaterTextField.clear();
