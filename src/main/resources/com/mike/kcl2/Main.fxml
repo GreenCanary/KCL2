@@ -397,12 +397,22 @@
                            </padding>
                         </GridPane>
                         <PieChart fx:id="PieChart" layoutX="3602.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="744.0" prefWidth="600.0" style="-fx-border-color: black;" />
-                        <Label layoutX="3797.0" layoutY="775.0" prefHeight="23.0" prefWidth="161.0" text="Извлечение узла:">
+                        <Label layoutX="3790.0" layoutY="754.0" prefHeight="23.0" prefWidth="161.0" text="Извлечение узла:">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="extractionLabel" layoutX="3962.0" layoutY="775.0" text="95">
+                        <Label fx:id="extractionLabel" layoutX="3955.0" layoutY="754.0" text="95">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3790.0" layoutY="784.0" prefHeight="23.0" prefWidth="161.0" text="Влажность кека:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="moistLabel" layoutX="3955.0" layoutY="784.0" text="95">
                            <font>
                               <Font size="20.0" />
                            </font>

@@ -274,6 +274,7 @@ public class MainController {
     @FXML private Label label_H2O_v12;
 
     @FXML private Label extractionLabel;
+    @FXML private Label moistLabel;
 
 
     //floto
@@ -586,6 +587,7 @@ public class MainController {
         setLabelValue(label_H2O_v12, result.getH2O_v());
 
         setLabelPrecentage(extractionLabel, (result.getS_KCl_v()/floto.getS_KCl_v() * 100));
+        setLabelPrecentage(moistLabel, (kek.getH2O_v()/kek.getS_Check_v()));
 
 
         PieChart.setTitle("Качество сухого продукта");

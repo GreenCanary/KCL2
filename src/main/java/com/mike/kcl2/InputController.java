@@ -44,6 +44,7 @@ public class InputController {
     @FXML private TextField NaClSolidTextField;
     @FXML private TextField CaSO4SolidTextField;
     @FXML private TextField slRatioTextField;
+    @FXML private TextField slRatioTextField1;
 
 
 
@@ -65,6 +66,7 @@ public class InputController {
         prefs.put("NaClSolid", NaClSolidTextField.getText());
         prefs.put("CaSO4Solid", CaSO4SolidTextField.getText());
         prefs.put("slRatio", slRatioTextField.getText());
+        prefs.put("slRatio1", slRatioTextField1.getText());
     }
     @FXML
     public void LoadMenuItemClicked() {
@@ -79,6 +81,7 @@ public class InputController {
         NaClSolidTextField.setText(prefs.get("NaClSolid", ""));
         CaSO4SolidTextField.setText(prefs.get("CaSO4Solid", ""));
         slRatioTextField.setText(prefs.get("slRatio", ""));
+        slRatioTextField.setText(prefs.get("slRatio1", ""));
     }
     @FXML
     private void DeleteMenuItemClicked(ActionEvent event) {
@@ -107,6 +110,7 @@ public class InputController {
         NaClSolidTextField.clear();
         CaSO4SolidTextField.clear();
         slRatioTextField.clear();
+        slRatioTextField1.clear();
     }
 
 
@@ -139,6 +143,7 @@ public class InputController {
 
             // Read and parse solid input fields and store in the corresponding properties
             double slRatio = Double.parseDouble(slRatioTextField.getText());
+            double slRatio1 = Double.parseDouble(slRatioTextField1.getText());
             double mTotal = Double.parseDouble(mTotalTextField.getText());
 
             double mLiquid = (mTotal * slRatio)/(slRatio + 1);
@@ -233,21 +238,21 @@ public class InputController {
 
 
             filtrat.setmSolid(mSolid);
-            filtrat.setS_KCl_p(96.71);
-            filtrat.setS_NaCl_p(0.54);
-            filtrat.setS_CaSO4_p(2.75);
+            filtrat.setS_KCl_p(96.79);
+            filtrat.setS_NaCl_p(0.52);
+            filtrat.setS_CaSO4_p(2.69);
             filtrat.setS_Check_p(100);
 
             filtrat.setSlRatio(slRatio);
             filtrat.setmLiquid(mLiquid);
-            filtrat.setL_KCl_p(17.2);
-            filtrat.setL_NaCl_p(10);
+            filtrat.setL_KCl_p(14.5);
+            filtrat.setL_NaCl_p(15);
             filtrat.setL_CaSO4_p(0.4);
-            filtrat.setH2O_p(72.4);
+            filtrat.setH2O_p(70.1);
             filtrat.setL_Check_p(100);
 
 // Format the values with 2 decimal places
-            double H2OFiltrat = 1.1 * floto.getH2O_p() / floto.getL_NaCl_p() * floto.getS_NaCl_v() * (1 + (filtrat.getL_NaCl_p() / filtrat.getH2O_p() * floto.getH2O_p() / floto.getL_NaCl_p()));
+            double H2OFiltrat = 1.086 * floto.getH2O_p() / floto.getL_NaCl_p() * floto.getS_NaCl_v() * (1 + (15 * 1.384/70.1 * floto.getH2O_p() / floto.getL_NaCl_p()));
             filtrat.setH2O_v(Double.parseDouble(String.format("%.2f", H2OFiltrat)));
             filtrat.setL_KCl_v(Double.parseDouble(String.format("%.2f",filtrat.getH2O_v()/ filtrat.getH2O_p()*filtrat.getL_KCl_p())));
             filtrat.setL_NaCl_v(Double.parseDouble(String.format("%.2f", filtrat.getH2O_v()/ filtrat.getH2O_p() * filtrat.getL_NaCl_p())));
@@ -255,7 +260,7 @@ public class InputController {
             filtrat.setL_Check_v(Double.parseDouble(String.format("%.2f", filtrat.getL_KCl_v() + filtrat.getL_NaCl_v()+ filtrat.getL_CaSO4_v()+ filtrat.getH2O_v())));
 
 
-            filtrat.setS_Check_v(Double.parseDouble(String.format("%.2f", filtrat.getL_Check_v()/106.2028)));
+            filtrat.setS_Check_v(Double.parseDouble(String.format("%.2f", filtrat.getL_Check_v()/81.92)));
             filtrat.setS_KCl_v(Double.parseDouble(String.format("%.2f", filtrat.getS_Check_v()*filtrat.getS_KCl_p()/100)));
             filtrat.setS_NaCl_v(Double.parseDouble(String.format("%.2f",filtrat.getS_Check_v()*filtrat.getS_NaCl_p()/100)));
             filtrat.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", filtrat.getS_Check_v()*filtrat.getS_CaSO4_p()/100)));
@@ -266,15 +271,15 @@ public class InputController {
             //PosleVish section
 
             posleVish.setH2O_v(Double.parseDouble(String.format("%.2f", floto.getH2O_v() + filtrat.getH2O_v())));
-            posleVish.setL_KCl_v(Double.parseDouble(String.format("%.2f",floto.getL_KCl_v() + 14.9090)));
-            posleVish.setL_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getL_NaCl_v() + 24.8484)));
-            posleVish.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", floto.getL_CaSO4_v() + 0.496969)));
+            posleVish.setL_KCl_v(Double.parseDouble(String.format("%.2f",floto.getL_KCl_v() + (filtrat.getH2O_v())/67.60*12)));
+            posleVish.setL_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getL_NaCl_v() + (filtrat.getH2O_v())/67.60*20)));
+            posleVish.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", floto.getL_CaSO4_v() + (filtrat.getH2O_v())/67.60*0.40)));
             posleVish.setL_Check_v(Double.parseDouble(String.format("%.2f", posleVish.getH2O_v() + posleVish.getL_KCl_v() + posleVish.getL_NaCl_v() + posleVish.getL_CaSO4_v())));
 
 
-            posleVish.setS_KCl_v(Double.parseDouble(String.format("%.2f", floto.getS_KCl_v() + filtrat.getS_KCl_v() + filtrat.getL_KCl_v() - 14.9090)));
-            posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f",floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - 24.8484)));
-            posleVish.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", floto.getS_CaSO4_v() + filtrat.getS_CaSO4_v() + filtrat.getL_CaSO4_v() - 0.496969)));
+            posleVish.setS_KCl_v(Double.parseDouble(String.format("%.2f", floto.getS_KCl_v() + filtrat.getS_KCl_v() + filtrat.getL_KCl_v() - (filtrat.getH2O_v()/67.60*12))));
+            posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f",floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v()/67.60*20))));
+            posleVish.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", floto.getS_CaSO4_v() + filtrat.getS_CaSO4_v() + filtrat.getL_CaSO4_v() - (filtrat.getH2O_v()/67.60*0.40))));
             posleVish.setS_Check_v(Double.parseDouble(String.format("%.2f", posleVish.getS_KCl_v()+ posleVish.getS_NaCl_v() + posleVish.getS_CaSO4_v())));
 
 
@@ -294,16 +299,16 @@ public class InputController {
             posleVish.setL_Check_p(100);
 
             //Penniy
-            penniy.setH2O_v(Double.parseDouble(String.format("%.2f", 13.77)));
-            penniy.setL_KCl_v(Double.parseDouble(String.format("%.2f", 2.69)));
-            penniy.setL_NaCl_v(Double.parseDouble(String.format("%.2f", 3.36)));
-            penniy.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.08)));
+            penniy.setH2O_v(Double.parseDouble(String.format("%.2f", 11.35)));
+            penniy.setL_KCl_v(Double.parseDouble(String.format("%.2f", 2.01)));
+            penniy.setL_NaCl_v(Double.parseDouble(String.format("%.2f", 3.30)));
+            penniy.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.07)));
             penniy.setL_Check_v(Double.parseDouble(String.format("%.2f", penniy.getH2O_v() + penniy.getL_KCl_v() + penniy.getL_NaCl_v() + penniy.getL_CaSO4_v())));
 
 
-            penniy.setS_KCl_v(Double.parseDouble(String.format("%.2f", 14.7)));
-            penniy.setS_NaCl_v(Double.parseDouble(String.format("%.2f",0.11)));
-            penniy.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.43)));
+            penniy.setS_KCl_v(Double.parseDouble(String.format("%.2f", 13.82)));
+            penniy.setS_NaCl_v(Double.parseDouble(String.format("%.2f",0.45)));
+            penniy.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.42)));
             penniy.setS_Check_v(Double.parseDouble(String.format("%.2f", penniy.getS_KCl_v()+ penniy.getS_NaCl_v() + penniy.getS_CaSO4_v())));
 
 
@@ -323,10 +328,10 @@ public class InputController {
             penniy.setL_Check_p(100);
 
             //Obezvosh
-            obezvozhivanie.setL_KCl_v(Double.parseDouble(String.format("%.2f", posleVish.getL_KCl_v()+ 2.444)));
-            obezvozhivanie.setL_NaCl_v(Double.parseDouble(String.format("%.2f", posleVish.getL_NaCl_v() + 4.0739)));
-            obezvozhivanie.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", posleVish.getL_CaSO4_v() + 0.0814)));
-            obezvozhivanie.setH2O_v(Double.parseDouble(String.format("%.2f", posleVish.getH2O_v() + 13.77)));
+            obezvozhivanie.setL_KCl_v(Double.parseDouble(String.format("%.2f", posleVish.getL_KCl_v()+ (penniy.getH2O_v() /67.60*12))));
+            obezvozhivanie.setL_NaCl_v(Double.parseDouble(String.format("%.2f", posleVish.getL_NaCl_v() + (penniy.getH2O_v() /67.60*20))));
+            obezvozhivanie.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", posleVish.getL_CaSO4_v() + (penniy.getH2O_v() /67.60*0.4))));
+            obezvozhivanie.setH2O_v(Double.parseDouble(String.format("%.2f", posleVish.getH2O_v() + 11.35)));
             obezvozhivanie.setL_Check_v(Double.parseDouble(String.format("%.2f", obezvozhivanie.getH2O_v() + obezvozhivanie.getL_KCl_v() + obezvozhivanie.getL_NaCl_v() + obezvozhivanie.getL_CaSO4_v())));
 
             obezvozhivanie.setL_KCl_p(Double.parseDouble(String.format("%.2f",(12.00))));
@@ -363,7 +368,7 @@ public class InputController {
             peski.setH2O_p(Double.parseDouble(String.format("%.2f",(67.60))));
             peski.setL_Check_p(100);
 
-            peski.setL_Check_v(Double.parseDouble(String.format("%.2f", peski.getS_Check_v() * 0.5)));
+            peski.setL_Check_v(Double.parseDouble(String.format("%.2f", peski.getS_Check_v() * slRatio1)));
             peski.setL_KCl_v(Double.parseDouble(String.format("%.2f", peski.getL_Check_v() * peski.getL_KCl_p() / 100)));
             peski.setL_NaCl_v(Double.parseDouble(String.format("%.2f", peski.getL_Check_v() * peski.getL_NaCl_p() / 100)));
             peski.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", peski.getL_Check_v() * peski.getL_CaSO4_p() / 100)));
@@ -419,10 +424,10 @@ public class InputController {
             redWater.setL_Check_p(100);
 
             //PitanieC
-            pitanieC.setL_KCl_p(Double.parseDouble(String.format("%.2f",(17.20))));
-            pitanieC.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(10.00))));
+            pitanieC.setL_KCl_p(Double.parseDouble(String.format("%.2f",(14.50))));
+            pitanieC.setL_NaCl_p(Double.parseDouble(String.format("%.2f",(15.00))));
             pitanieC.setL_CaSO4_p(Double.parseDouble(String.format("%.2f",(0.40))));
-            pitanieC.setH2O_p(Double.parseDouble(String.format("%.2f",(72.40))));
+            pitanieC.setH2O_p(Double.parseDouble(String.format("%.2f",(70.1))));
             pitanieC.setL_Check_p(100);
 
             pitanieC.setL_NaCl_v(Double.parseDouble(String.format("%.2f", (redWater.getL_NaCl_v()+ peski.getL_NaCl_v() + peski.getS_NaCl_v()) * 0.958)));
