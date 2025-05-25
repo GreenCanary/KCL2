@@ -587,7 +587,7 @@ public class MainController {
         setLabelValue(label_H2O_v12, result.getH2O_v());
 
         setLabelPrecentage(extractionLabel, (result.getS_KCl_v()/floto.getS_KCl_v() * 100));
-        setLabelPrecentage(moistLabel, (kek.getH2O_v()/kek.getS_Check_v()));
+        setLabelPrecentage(moistLabel, (kek.getH2O_v()/kek.getS_Check_v()*100));
 
 
         PieChart.setTitle("Качество сухого продукта");
