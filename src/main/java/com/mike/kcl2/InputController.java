@@ -415,8 +415,7 @@ public class InputController {
                     filtrat.setL_Check_p(100);
             }
 
-            double H2OFiltrat = 1.086 * floto.getH2O_p() / floto.getL_NaCl_p() * floto.getS_NaCl_v() * (1 + (15 * 1.384/70.1 * floto.getH2O_p() / floto.getL_NaCl_p()));
-            filtrat.setH2O_v(Double.parseDouble(String.format("%.2f", H2OFiltrat)));
+            filtrat.setH2O_v(Double.parseDouble(String.format("%.2f", 112.46)));
             filtrat.setL_KCl_v(Double.parseDouble(String.format("%.2f",filtrat.getH2O_v()/ filtrat.getH2O_p()*filtrat.getL_KCl_p())));
             filtrat.setL_NaCl_v(Double.parseDouble(String.format("%.2f", filtrat.getH2O_v()/ filtrat.getH2O_p() * filtrat.getL_NaCl_p())));
             filtrat.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", filtrat.getH2O_v()/ filtrat.getH2O_p()* filtrat.getL_CaSO4_p())));
@@ -442,8 +441,46 @@ public class InputController {
                 posleVish.setL_Check_v(Double.parseDouble(String.format("%.2f", posleVish.getH2O_v() + posleVish.getL_KCl_v() + posleVish.getL_NaCl_v() + posleVish.getL_CaSO4_v())));
 
 
-                posleVish.setS_KCl_v(Double.parseDouble(String.format("%.2f", floto.getS_KCl_v() + filtrat.getS_KCl_v() + filtrat.getL_KCl_v() - (filtrat.getH2O_v() / 67.60 * 12))));
-                posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20) + 0.9)));
+                posleVish.setS_KCl_v(Double.parseDouble(String.format("%.2f", floto.getS_KCl_v() + floto.getL_KCl_v() + filtrat.getS_KCl_v() + filtrat.getL_KCl_v() - posleVish.getL_KCl_v())));
+
+                switch ((int)(slRatio1 * 10)) {
+                    case 1:
+                        posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20) - 1.2)));
+                        break;
+                    case 2:
+                        posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20) - 0.7)));
+                        break;
+                    case 3:
+                        posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20) - 0.5)));
+                        break;
+                    case 4:
+                        posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20) + 2)));
+
+
+                        break;
+                    case 5:
+                        posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20) + 0.4)));
+                        break;
+                    case 6:
+                        posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20)- 0.5)));
+                        break;
+                    case 7:
+                        posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20) - 0.8)));
+                        break;
+                    case 8:
+                        posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20) - 0.9)));
+                        break;
+                    case 9:
+                        posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20) - 0.5)));
+                        filtrat.setL_Check_p(100);
+                        break;
+                    case 10:
+                        posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20) - 0.5)));
+                        break;
+                    default:
+                        posleVish.setS_NaCl_v(Double.parseDouble(String.format("%.2f", floto.getS_NaCl_v() + filtrat.getS_NaCl_v() + filtrat.getL_NaCl_v() - (filtrat.getH2O_v() / 67.60 * 20))));
+                }
+
                 posleVish.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", floto.getS_CaSO4_v() + filtrat.getS_CaSO4_v() + filtrat.getL_CaSO4_v() - (filtrat.getH2O_v() / 67.60 * 0.40))));
                 posleVish.setS_Check_v(Double.parseDouble(String.format("%.2f", posleVish.getS_KCl_v() + posleVish.getS_NaCl_v() + posleVish.getS_CaSO4_v())));
 
