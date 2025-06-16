@@ -664,11 +664,10 @@ public class InputController {
                 kek.setS_Check_p(100);
 
 
-                kek.setL_KCl_p(Double.parseDouble(String.format("%.2f", (14.50))));
-                kek.setL_NaCl_p(Double.parseDouble(String.format("%.2f", (15.00))));
-                kek.setL_CaSO4_p(Double.parseDouble(String.format("%.2f", (0.40))));
-                kek.setH2O_p(Double.parseDouble(String.format("%.2f", (70.10))));
-                kek.setL_Check_p(100);
+                kek.setL_KCl_p(Double.parseDouble(String.format("%.2f", (filtrat.getL_KCl_p()))));
+                kek.setL_NaCl_p(Double.parseDouble(String.format("%.2f", (filtrat.getL_NaCl_p()))));
+                kek.setL_CaSO4_p(Double.parseDouble(String.format("%.2f", (filtrat.getL_CaSO4_p()))));
+                kek.setH2O_p(Double.parseDouble(String.format("%.2f", (filtrat.getH2O_p()))));
 
                 kek.setL_KCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_KCl_v() * 0.0685)));
                 kek.setL_NaCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_NaCl_v() * 0.0685)));
