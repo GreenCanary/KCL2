@@ -149,7 +149,7 @@ public class InputController {
             double red_H2O_p = Double.parseDouble(H2ORedWaterTextField.getText());
 
             // Read and parse solid input fields and store in the corresponding properties
-            double moist = Double.parseDouble(moistTextField.getText());
+            double moist = Double.parseDouble(moistTextField.getText())/100;
             double slRatio = Double.parseDouble(slRatioTextField.getText());
             double slRatioPre = Double.parseDouble(slRatioTextField1.getText());
             double slRatio1 = Math.round(slRatioPre*10)/10.0;
@@ -670,10 +670,10 @@ public class InputController {
                 kek.setH2O_p(Double.parseDouble(String.format("%.2f", (filtrat.getH2O_p()))));
                 kek.setL_Check_p(100);
 
-                kek.setL_KCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_KCl_v() * 0.0685)));
-                kek.setL_NaCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_NaCl_v() * 0.0685)));
-                kek.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_CaSO4_v() * 0.0685)));
-                kek.setH2O_v(Double.parseDouble(String.format("%.2f", kek.getS_Check_v() * moist / 100)));
+                kek.setH2O_v(Double.parseDouble(String.format("%.2f", kek.getS_Check_v() * moist / (1 - moist * ((kek.getL_KCl_p() + kek.getL_NaCl_p() + kek.getL_CaSO4_p())/ kek.getS_Check_v())))));
+                kek.setL_KCl_v(Double.parseDouble(String.format("%.2f", kek.getH2O_v()/kek.getH2O_p() * kek.getL_KCl_p())));
+                kek.setL_NaCl_v(Double.parseDouble(String.format("%.2f", kek.getH2O_v()/kek.getH2O_p() * kek.getL_NaCl_p())));
+                kek.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", kek.getH2O_v()/kek.getH2O_p() * kek.getL_CaSO4_p())));
                 kek.setL_Check_v(Double.parseDouble(String.format("%.2f", kek.getH2O_v() + kek.getL_KCl_v() + kek.getL_NaCl_v() + kek.getL_CaSO4_v())));
 
 
@@ -865,7 +865,7 @@ public class InputController {
 
                 //result
                 result.setS_KCl_v(Double.parseDouble(String.format("%.2f", kek.getL_KCl_v() + kek.getS_KCl_v())));
-                result.setS_NaCl_v(Double.parseDouble(String.format("%.2f", kek.getL_NaCl_v() + kek.getS_NaCl_v() + 1.1)));
+                result.setS_NaCl_v(Double.parseDouble(String.format("%.2f", kek.getL_NaCl_v() + kek.getS_NaCl_v() + 0.76)));
                 result.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", kek.getL_CaSO4_v() + kek.getS_CaSO4_v())));
                 result.setS_Check_v(Double.parseDouble(String.format("%.2f", result.getS_KCl_v() + result.getS_NaCl_v() + result.getS_CaSO4_v())));
 
