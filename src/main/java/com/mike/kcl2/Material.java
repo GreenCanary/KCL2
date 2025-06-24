@@ -29,9 +29,7 @@ public class Material {
     private double H2O_v = 0;
     private double l_Check_p = 0;
     private double l_Check_v = 0;
-
-
-
+    private double moist = 0;
 
 
     public double getS_KCl_p() {
@@ -200,5 +198,13 @@ public class Material {
 
     public void setmLiquid(double mLiquid) {
         this.mLiquid = mLiquid;
+    }
+
+    public double getMoist() {
+        return moist;
+    }
+
+    public void setMoist(double moist) {
+        this.moist = moist;
     }
 }

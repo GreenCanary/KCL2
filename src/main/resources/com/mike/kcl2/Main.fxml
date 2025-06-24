@@ -407,16 +407,6 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="3790.0" layoutY="784.0" prefHeight="23.0" prefWidth="161.0" text="Влажность кека:">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="moistLabel" layoutX="3955.0" layoutY="784.0" text="95">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
                      </children>
               </AnchorPane>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="545.0" prefWidth="4007.0">

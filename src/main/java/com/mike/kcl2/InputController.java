@@ -885,6 +885,7 @@ public class InputController {
                 result.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.00)));
                 result.setH2O_v(Double.parseDouble(String.format("%.2f", 0.00)));
                 result.setL_Check_v(Double.parseDouble(String.format("%.2f", 0.00)));
+                result.setMoist(moist);
                 n++;
             } while ( n<3);
 
