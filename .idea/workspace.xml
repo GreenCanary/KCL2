@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="final 2">
+    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="final!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/Material.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/PopOutInput.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/PopOutInput.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +74,6 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="QodanaReportsService">
-    <option name="descriptions">
-      <ReportDescription localRun="true" path="/private/var/folders/1z/ct39ffrs713g62hbdhyzjnnc0000gn/T/qodana_output/qodana.sarif.json" reportGuid="9f14ae05-18fd-4523-9a6b-6f85053db1e9" reportId="KCL2/qodana/2025-05-26" />
-    </option>
-  </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.mike.kcl2" />
@@ -444,7 +440,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750145443845</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="final!!!">
+      <option name="closed" value="true" />
+      <created>1750771200393</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1750771200393</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -459,7 +463,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="popout2" />
     <MESSAGE value="Test" />
     <MESSAGE value="Test 2" />
     <MESSAGE value="Test 3" />
@@ -484,17 +487,7 @@
     <MESSAGE value="newest era 2" />
     <MESSAGE value="final 1" />
     <MESSAGE value="final 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="final 2" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mike/kcl2/MainController.java</url>
-          <line>569</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="final!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="final!!!" />
   </component>
 </project>
