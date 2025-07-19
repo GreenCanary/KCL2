@@ -40,6 +40,7 @@ public class InputController {
     @FXML private TextField slRatioTextField;
     @FXML private TextField tempTextField;
     @FXML private TextField densityTextField;
+    @FXML private TextField agentTextField;
 
 
 
@@ -63,6 +64,7 @@ public class InputController {
         prefs.put("slRatio", slRatioTextField.getText());
         prefs.put("temp", tempTextField.getText());
         prefs.put("density", densityTextField.getText());
+        prefs.put("agent", agentTextField.getText());
     }
     @FXML
     public void LoadMenuItemClicked() {
@@ -79,24 +81,13 @@ public class InputController {
         slRatioTextField.setText(prefs.get("slRatio", ""));
         tempTextField.setText(prefs.get("temp", ""));
         densityTextField.setText(prefs.get("density", ""));
+        agentTextField.setText(prefs.get("agent", ""));
     }
     @FXML
     private void DeleteMenuItemClicked(ActionEvent event) {
         Preferences prefs = Preferences.userNodeForPackage(InputController.class);
 
-        // Clear preferences
-        prefs.remove("KClRedWater");
-        prefs.remove("NaClRedWater");
-        prefs.remove("CaSO4RedWater");
-        prefs.remove("H2ORedWater");
 
-        prefs.remove("mTotal");
-        prefs.remove("KClSolid");
-        prefs.remove("NaClSolid");
-        prefs.remove("CaSO4Solid");
-        prefs.remove("slRatio");
-        prefs.remove("temp");
-        prefs.remove("density");
 
         // Clear text fields
         KClRedWaterTextField.clear();
@@ -111,25 +102,11 @@ public class InputController {
         slRatioTextField.clear();
         tempTextField.clear();
         densityTextField.clear();
+        agentTextField.clear();
     }
 
 
-    public void handleOpenWindow(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PopupWindow.fxml")); // your pop-up FXML
-            Parent root = fxmlLoader.load();
 
-
-            Stage stage = new Stage();
-            stage.setTitle("Pop-up Window");
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
 
 
 
@@ -300,11 +277,10 @@ public class InputController {
             result.setL_Check_p(100);
 
 
-            //Loading first sheet
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mike/kcl2/Main.fxml")); // Adjust path to match your project structure
             Parent root = loader.load();
 
-            // Optionally pass values to MainController
+            // Get the controller and pass the data
             MainController mainController = loader.getController();
             mainController.setFloto(floto);
             mainController.setPosleVish(posleVish);
@@ -312,12 +288,9 @@ public class InputController {
             mainController.setResult(result);
             mainController.updateAllLabels();
 
+            // Switch root while preserving fullscreen
+            Application.getRootContainer().getChildren().setAll(root);
 
-            // Get the current stage and set the new scene
-            Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("KCL"); // Optional: change window title
-            stage.show();
 
 
         } catch (NumberFormatException e) {
@@ -329,6 +302,7 @@ public class InputController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
 

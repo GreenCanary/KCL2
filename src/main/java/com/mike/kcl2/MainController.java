@@ -243,16 +243,12 @@ public class MainController {
 
     public void MenuInputPopOut(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PopOutInput.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/mike/kcl2/PopOutInput.fxml")); // Adjust if needed
             Parent root = fxmlLoader.load();
 
-            // Get the current stage, this will work for various event sources
-            Stage currentStage = (Stage) ((MenuItem) actionEvent.getSource()).getParentPopup().getOwnerWindow();
 
-            // Replace the scene in the current window
-            currentStage.setScene(new Scene(root));
-            currentStage.setTitle("Ввод данных");
-            currentStage.show();
+            InputController controller = fxmlLoader.getController();
+            Application.getRootContainer().getChildren().setAll(root);
 
         } catch (Exception e) {
             e.printStackTrace();

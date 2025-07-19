@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="kcl3">
+    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="kcl3 ui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/Pitanie.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/PopOutInput.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/PopOutInput.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -455,7 +453,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752850333446</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="kcl3 ui">
+      <option name="closed" value="true" />
+      <created>1752939927298</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1752939927298</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -470,7 +476,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Test 2" />
     <MESSAGE value="Test 3" />
     <MESSAGE value="Works" />
     <MESSAGE value="Works 2" />
@@ -495,6 +500,7 @@
     <MESSAGE value="final 2" />
     <MESSAGE value="final!!!" />
     <MESSAGE value="kcl3" />
-    <option name="LAST_COMMIT_MESSAGE" value="kcl3" />
+    <MESSAGE value="kcl3 ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="kcl3 ui" />
   </component>
 </project>
