@@ -219,8 +219,6 @@ public class MainController {
         setLabelValue(label_l_Check_v4, result.getL_Check_v());
         setLabelValue(label_H2O_v4, result.getH2O_v());
 
-        setLabelPrecentage(extractionLabel, (result.getS_KCl_v()/(floto.getS_KCl_v() + redWater.getL_KCl_v())*100));
-
 
 //        PieChart.setTitle("Качество сухого продукта");
 //        PieChart.setStyle("-fx-font-size: 20px;"); // Affects title & legend
