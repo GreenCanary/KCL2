@@ -17,6 +17,8 @@ import javafx.scene.chart.BarChart;
 
 public class MainController {
 
+    @FXML private Label label_res_temp;
+    @FXML private Label label_res_plot;
     //Flato
     @FXML private Label label_s_KCl_p;
     @FXML private Label label_s_NaCl_p;
@@ -127,6 +129,8 @@ public class MainController {
         label.setText(value+ "");
     }
     public void updateAllLabels() {
+        setLabelValue(label_s_KCl_v, floto.getS_KCl_v());
+
         setLabelPrecentage(label_s_KCl_p, floto.getS_KCl_p());
         setLabelPrecentage(label_s_NaCl_p, floto.getS_NaCl_p());
         setLabelPrecentage(label_s_CaSO4_p, floto.getS_CaSO4_p());

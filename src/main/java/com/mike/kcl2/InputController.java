@@ -119,7 +119,8 @@ public class InputController {
             double red_H2O_p = Double.parseDouble(H2ORedWaterTextField.getText());
 
             // Read and parse solid input fields and store in the corresponding properties
-            double temp = Double.parseDouble(tempTextField.getText())/100;
+            double agent = Double.parseDouble(agentTextField.getText());
+            int temp = Integer.parseInt(tempTextField.getText());
             double slRatio = Double.parseDouble(slRatioTextField.getText());
             double density = Double.parseDouble(densityTextField.getText());
             double mTotal = Double.parseDouble(mTotalTextField.getText());
@@ -205,12 +206,35 @@ public class InputController {
             floto.setH2O_v(Double.parseDouble(String.format("%.2f", 67.6 * mLiquid / 100)));
             floto.setL_Check_v(Double.parseDouble(String.format("%.2f", floto.getL_KCl_v() + floto.getL_NaCl_v()+ floto.getL_CaSO4_v()+ floto.getH2O_v())));
 
+            //RedWater
+            redWater.setS_KCl_v(Double.parseDouble(String.format("%.2f", 0.00)));
+            redWater.setS_NaCl_v(Double.parseDouble(String.format("%.2f", 0.00)));
+            redWater.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.00)));
+            redWater.setS_Check_v(Double.parseDouble(String.format("%.2f", 0.00)));
+
+            redWater.setS_KCl_p(Double.parseDouble(String.format("%.2f", 0.00)));
+            redWater.setS_NaCl_p(Double.parseDouble(String.format("%.2f", 0.00)));
+            redWater.setS_CaSO4_p(Double.parseDouble(String.format("%.2f", 0.00)));
+            redWater.setS_Check_p(0.00);
+
+
+            redWater.setL_KCl_p(Double.parseDouble(String.format("%.2f", (inputValues.getRed_KCL_p()))));
+            redWater.setL_NaCl_p(Double.parseDouble(String.format("%.2f", (inputValues.getRed_NaCl_p()))));
+            redWater.setL_CaSO4_p(Double.parseDouble(String.format("%.2f", (inputValues.getRed_CaSO4_p()))));
+            redWater.setH2O_p(Double.parseDouble(String.format("%.2f", (inputValues.getRed_H2O_p()))));
+            redWater.setL_Check_p(100);
+
+            redWater.setL_Check_v(agent);
+            redWater.setL_KCl_v(agent * redWater.getL_KCl_p()/100);
+            redWater.setL_NaCl_v(agent * redWater.getL_NaCl_p()/100);
+            redWater.setL_CaSO4_v(agent * redWater.getL_CaSO4_p()/100);
+            redWater.setH2O_v(agent * redWater.getH2O_p()/100);
 
 
 
 
 
-// Format the values with 2 decimal places
+
 
                 posleVish.setH2O_v(Double.parseDouble(String.format("%.2f", floto.getH2O_v())));
                 posleVish.setL_KCl_v(Double.parseDouble(String.format("%.2f", floto.getL_KCl_v())));
@@ -236,29 +260,10 @@ public class InputController {
                 posleVish.setSlRatio(slRatio);
                 posleVish.setmLiquid(mLiquid);
 
-                posleVish.setL_KCl_p(Double.parseDouble(String.format("%.2f", (posleVish.getL_KCl_v() / posleVish.getL_Check_v() * 100))));
-                posleVish.setL_NaCl_p(Double.parseDouble(String.format("%.2f", (posleVish.getL_NaCl_v() / posleVish.getL_Check_v() * 100))));
-                posleVish.setL_CaSO4_p(Double.parseDouble(String.format("%.2f", (posleVish.getL_CaSO4_v() / posleVish.getL_Check_v() * 100))));
+
+
                 posleVish.setH2O_p(Double.parseDouble(String.format("%.2f", (posleVish.getH2O_v() / posleVish.getL_Check_v() * 100))));
                 posleVish.setL_Check_p(100);
-
-                //RedWater
-                redWater.setS_KCl_v(Double.parseDouble(String.format("%.2f", 0.00)));
-                redWater.setS_NaCl_v(Double.parseDouble(String.format("%.2f", 0.00)));
-                redWater.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", 0.00)));
-                redWater.setS_Check_v(Double.parseDouble(String.format("%.2f", 0.00)));
-
-                redWater.setS_KCl_p(Double.parseDouble(String.format("%.2f", 0.00)));
-                redWater.setS_NaCl_p(Double.parseDouble(String.format("%.2f", 0.00)));
-                redWater.setS_CaSO4_p(Double.parseDouble(String.format("%.2f", 0.00)));
-                redWater.setS_Check_p(0.00);
-
-
-                redWater.setL_KCl_p(Double.parseDouble(String.format("%.2f", (inputValues.getRed_KCL_p()))));
-                redWater.setL_NaCl_p(Double.parseDouble(String.format("%.2f", (inputValues.getRed_NaCl_p()))));
-                redWater.setL_CaSO4_p(Double.parseDouble(String.format("%.2f", (inputValues.getRed_CaSO4_p()))));
-                redWater.setH2O_p(Double.parseDouble(String.format("%.2f", (inputValues.getRed_H2O_p()))));
-                redWater.setL_Check_p(100);
 
 
 
