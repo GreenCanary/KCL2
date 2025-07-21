@@ -19,6 +19,17 @@ public class MainController {
 
     @FXML private Label label_res_temp;
     @FXML private Label label_res_plot;
+    @FXML private Label label_res_KCl_p;
+    @FXML private Label label_res_NaCl_p;
+    @FXML private Label label_res_H2O_p;
+    @FXML private Label label_res_H2O_fk;
+    @FXML private Label label_res_H2O_agent;
+    @FXML private Label label_res_H2O_total;
+    @FXML private Label label_res_NaCl_v;
+    @FXML private Label label_res_H2O_correction_v;
+    @FXML private Label label_res_H2O_calculated;
+    @FXML private Label label_res_H2O_correction_p;
+
     //Flato
     @FXML private Label label_s_KCl_p;
     @FXML private Label label_s_NaCl_p;
@@ -116,6 +127,7 @@ public class MainController {
     private Material posleVish;
 
     private Material result;
+    private InputValuesPrecentages inputValues;
 
 
     // Add a setter method for floto
@@ -200,6 +212,27 @@ public class MainController {
         setLabelValue(label_l_Check_v3, posleVish.getL_Check_v());
         setLabelValue(label_H2O_v3, posleVish.getH2O_v());
 
+        setLabelValue(label_res_temp, inputValues.getTemperature());
+        setLabelValue(label_res_plot, inputValues.getDensity());
+
+        setLabelValue(label_res_KCl_p, posleVish.getL_KCl_p());
+        setLabelValue(label_res_NaCl_p,  posleVish.getL_NaCl_p());
+        setLabelValue(label_res_H2O_p,  posleVish.getH2O_p());
+
+        setLabelValue(label_res_H2O_fk, floto.getH2O_v());
+        setLabelValue(label_res_H2O_agent,  redWater.getL_Check_v());
+        double waterTotal = floto.getH2O_v() + redWater.getL_Check_v();
+        setLabelValue(label_res_H2O_total, waterTotal);
+
+        setLabelValue(label_res_NaCl_v, posleVish.getL_NaCl_v());
+        double waterTotalCalculated = posleVish.getL_NaCl_v()/20 * 1.15*67.6;
+        double waterCorrection = waterTotalCalculated - waterTotal;
+        setLabelValue(label_res_H2O_correction_v, (Double.parseDouble(String.format("%.2f",waterCorrection))));
+        double waterCorrectionCalculated = redWater.getL_Check_v() + waterCorrection;
+        setLabelValue(label_res_H2O_calculated, (Double.parseDouble(String.format("%.2f", waterCorrectionCalculated))));
+        double waterCorrectionP = 100-((waterCorrectionCalculated/ redWater.getL_Check_v()*100));
+        setLabelPrecentage(label_res_H2O_correction_p, waterCorrectionP);
+
         //result
         setLabelPrecentage(label_s_KCl_p4, result.getS_KCl_p());
         setLabelPrecentage(label_s_NaCl_p4, result.getS_NaCl_p());
@@ -222,6 +255,10 @@ public class MainController {
         setLabelValue(label_l_CaSO4_v4, result.getL_CaSO4_v());
         setLabelValue(label_l_Check_v4, result.getL_Check_v());
         setLabelValue(label_H2O_v4, result.getH2O_v());
+
+
+
+
 
 
 //        PieChart.setTitle("Качество сухого продукта");
@@ -273,5 +310,8 @@ public class MainController {
 
     public void setResult(Material result) {
         this.result = result;
+    }
+    public void setInputValues(InputValuesPrecentages inputValues) {
+        this.inputValues = inputValues;
     }
 }

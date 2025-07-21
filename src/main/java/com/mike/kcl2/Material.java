@@ -2,6 +2,7 @@ package com.mike.kcl2;
 
 public class Material {
     //solid phase section
+    private double calculatedH2O = 0;
     private double mSolid = 0;
     private double mLiquid = 0;
     private double slRatio = 0;
@@ -206,5 +207,13 @@ public class Material {
 
     public void setMoist(double moist) {
         this.moist = moist;
+    }
+
+    public double getCalculatedH2O() {
+        return calculatedH2O;
+    }
+
+    public void setCalculatedH2O(double calculatedH2O) {
+        this.calculatedH2O = calculatedH2O;
     }
 }

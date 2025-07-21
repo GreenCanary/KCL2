@@ -4,6 +4,8 @@ public class InputValuesPrecentages {
     private double slRatio = 0;
     private double mRedWater = 0;
     private double mTotal = 0;
+    private double density = 0;
+    private int temperature = 0;
 
 
     private double red_KCL_p = 0;
@@ -98,5 +100,21 @@ public class InputValuesPrecentages {
 
     public void setmTotal(double mTotal) {
         this.mTotal = mTotal;
+    }
+
+    public double getDensity() {
+        return density;
+    }
+
+    public void setDensity(double density) {
+        this.density = density;
+    }
+
+    public int getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(int temperature) {
+        this.temperature = temperature;
     }
 }
