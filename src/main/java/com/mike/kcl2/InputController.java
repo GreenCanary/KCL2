@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -20,7 +21,6 @@ import java.io.IOException;
 public class InputController {
 
     private InputValuesPrecentages inputValues;
-    private MainController mainController;
     private Material floto;
     private Material redWater;
     private Material posleVish;
@@ -28,41 +28,30 @@ public class InputController {
 
 
 
-
-    @FXML private TextField KClRedWaterTextField;
-    @FXML private TextField NaClRedWaterTextField;
-    @FXML private TextField CaSO4RedWaterTextField;
-    @FXML private TextField H2ORedWaterTextField;
-
-    @FXML private TextField mTotalTextField;
-    @FXML private TextField KClSolidTextField;
-    @FXML private TextField NaClSolidTextField;
-    @FXML private TextField CaSO4SolidTextField;
-    @FXML private TextField slRatioTextField;
+    @FXML private TextField mKekTextField;
     @FXML private TextField tempTextField;
     @FXML private TextField densityTextField;
     @FXML private TextField agentTextField;
-
+    @FXML private Label resultH2O;
 
 
 
     public void initData(InputValuesPrecentages inputValues) {
         this.inputValues = inputValues;
+
+    }
+
+    public void initialize() {
+        mKekTextField.setPromptText("200 т/ч");
+        tempTextField.setPromptText("20, 25, или 30 t⁰C");
+        densityTextField.setPromptText("1.20 т/м3");
+        agentTextField.setPromptText("157.52 т/ч");
     }
 
     @FXML
     private void SaveMenuItemClicked(ActionEvent event) {
         Preferences prefs = Preferences.userNodeForPackage(InputController.class);
-
-        prefs.put("KClRedWater", KClRedWaterTextField.getText());
-        prefs.put("NaClRedWater", NaClRedWaterTextField.getText());
-        prefs.put("CaSO4RedWater", CaSO4RedWaterTextField.getText());
-        prefs.put("H2ORedWater", H2ORedWaterTextField.getText());
-        prefs.put("mTotal", mTotalTextField.getText());
-        prefs.put("KClSolid", KClSolidTextField.getText());
-        prefs.put("NaClSolid", NaClSolidTextField.getText());
-        prefs.put("CaSO4Solid", CaSO4SolidTextField.getText());
-        prefs.put("slRatio", slRatioTextField.getText());
+        prefs.put("mKek", mKekTextField.getText());
         prefs.put("temp", tempTextField.getText());
         prefs.put("density", densityTextField.getText());
         prefs.put("agent", agentTextField.getText());
@@ -71,15 +60,7 @@ public class InputController {
     public void LoadMenuItemClicked() {
         Preferences prefs = Preferences.userNodeForPackage(InputController.class);
 
-        KClRedWaterTextField.setText(prefs.get("KClRedWater", ""));
-        NaClRedWaterTextField.setText(prefs.get("NaClRedWater", ""));
-        CaSO4RedWaterTextField.setText(prefs.get("CaSO4RedWater", ""));
-        H2ORedWaterTextField.setText(prefs.get("H2ORedWater", ""));
-        mTotalTextField.setText(prefs.get("mTotal", ""));
-        KClSolidTextField.setText(prefs.get("KClSolid", ""));
-        NaClSolidTextField.setText(prefs.get("NaClSolid", ""));
-        CaSO4SolidTextField.setText(prefs.get("CaSO4Solid", ""));
-        slRatioTextField.setText(prefs.get("slRatio", ""));
+        mKekTextField.setText(prefs.get("mKek", ""));
         tempTextField.setText(prefs.get("temp", ""));
         densityTextField.setText(prefs.get("density", ""));
         agentTextField.setText(prefs.get("agent", ""));
@@ -88,19 +69,7 @@ public class InputController {
     private void DeleteMenuItemClicked(ActionEvent event) {
         Preferences prefs = Preferences.userNodeForPackage(InputController.class);
 
-
-
-        // Clear text fields
-        KClRedWaterTextField.clear();
-        NaClRedWaterTextField.clear();
-        CaSO4RedWaterTextField.clear();
-        H2ORedWaterTextField.clear();
-
-        mTotalTextField.clear();
-        KClSolidTextField.clear();
-        NaClSolidTextField.clear();
-        CaSO4SolidTextField.clear();
-        slRatioTextField.clear();
+        mKekTextField.clear();
         tempTextField.clear();
         densityTextField.clear();
         agentTextField.clear();
@@ -108,29 +77,31 @@ public class InputController {
 
 
 
-
+    public void setLabelValue(Label label, double value) {
+        label.setText(value+ "");
+    }
 
 
     public void InputClickedStartCalculations(MouseEvent mouseEvent) {
         try {
             // Read and parse red water input fields and store in the corresponding properties
-            double red_KCl_p = Double.parseDouble(KClRedWaterTextField.getText());
-            double red_NaCl_p = Double.parseDouble(NaClRedWaterTextField.getText());
-            double red_CaSO4_p = Double.parseDouble(CaSO4RedWaterTextField.getText());
-            double red_H2O_p = Double.parseDouble(H2ORedWaterTextField.getText());
+            double red_KCl_p = 0.0;
+            double red_NaCl_p = 0.0;
+            double red_CaSO4_p = 0.0;
+            double red_H2O_p = 100.0;
 
             // Read and parse solid input fields and store in the corresponding properties
             double agent = Double.parseDouble(agentTextField.getText());
             int temp = Integer.parseInt(tempTextField.getText());
-            double slRatio = Double.parseDouble(slRatioTextField.getText());
             double density = Double.parseDouble(densityTextField.getText());
-            double mTotal = Double.parseDouble(mTotalTextField.getText());
+            double slRatio = 0.8;
+            double mTotal = 396.0;
 
             double mLiquid = (mTotal * slRatio)/(slRatio + 1);
             double mSolid = mTotal - mLiquid;
-            double s_KCl_p = Double.parseDouble(KClSolidTextField.getText());
-            double s_NaCl_p = Double.parseDouble(NaClSolidTextField.getText());
-            double s_CaSO4_p = Double.parseDouble(CaSO4SolidTextField.getText());
+            double s_KCl_p = 90.0;
+            double s_NaCl_p = 7.0;
+            double s_CaSO4_p = 3.0;
 
 
             double sumLiquidPercentages = red_KCl_p + red_NaCl_p + red_CaSO4_p + red_H2O_p;
@@ -278,8 +249,8 @@ public class InputController {
 
 
 
-            result.setL_NaCl_p((Double.parseDouble(String.format("%.2f",16.0))));  // Set NaCl percentage from lookup
-            result.setL_KCl_p((Double.parseDouble(String.format("%.2f", 12.76))));    // Set KCl percentage from lookup
+            result.setL_NaCl_p((Double.parseDouble(String.format("%.2f",17.6))));  // Set NaCl percentage from lookup
+            result.setL_KCl_p((Double.parseDouble(String.format("%.2f", 12.09))));    // Set KCl percentage from lookup
             result.setL_CaSO4_p(0.4);
             result.setH2O_v((Double.parseDouble(String.format("%.2f",(redWater.getL_Check_v()+ floto.getH2O_v()) + (posleVish.getL_NaCl_v()/20 * 1.15*67.6) - (floto.getH2O_v() + redWater.getL_Check_v())))));
 
@@ -305,20 +276,26 @@ public class InputController {
             result.setS_Check_p(100);
 
 
+            double waterTotal = floto.getH2O_v() + redWater.getL_Check_v();
+            double waterTotalCalculated = posleVish.getL_NaCl_v()/result.getL_NaCl_p() * 1.15*result.getH2O_p();
+            double waterCorrection = waterTotalCalculated - waterTotal;
+            double waterCorrectionCalculated = redWater.getL_Check_v() + waterCorrection;
 
+            System.out.println("KCl: "+posleVish.getL_KCl_p()+" %");
+            System.out.println("NaCl: "+posleVish.getL_NaCl_p()+" %");
+            System.out.println("NaCl: " + posleVish.getL_NaCl_v());
+
+
+            System.out.println("water total: " + waterTotal);
+            System.out.println("water total calculated: " + waterTotalCalculated);
+            System.out.println("water correction: " + waterCorrection);
+            System.out.println("water correction calculated: " + waterCorrectionCalculated);
+
+            setLabelValue(resultH2O, (Double.parseDouble(String.format("%.2f",waterCorrectionCalculated))));
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mike/kcl2/Main.fxml")); // Adjust path to match your project structure
             Parent root = loader.load();
 
             // Get the controller and pass the data
-            MainController mainController = loader.getController();
-            mainController.setFloto(floto);
-            mainController.setPosleVish(posleVish);
-            mainController.setRedWater(redWater);
-            mainController.setResult(result);
-            mainController.setInputValues(inputValues);
-            mainController.updateAllLabels();
-
-            // Switch root while preserving fullscreen
             Application.getRootContainer().getChildren().setAll(root);
 
 

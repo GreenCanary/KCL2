@@ -32,6 +32,7 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -45,7 +46,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #2b2c28;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mike.kcl2.InputController">
+<VBox prefHeight="1080.0" prefWidth="1704.0" style="-fx-background-color: #2b2c28;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mike.kcl2.InputController">
   <children>
       <MenuBar>
         <menus>
@@ -59,14 +60,11 @@
           </Menu>
         </menus>
       </MenuBar>
-      <GridPane prefHeight="603.0" prefWidth="1920.0">
+      <GridPane prefHeight="631.0" prefWidth="828.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="235.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="241.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="241.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="241.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="241.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="241.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="670.7489624023438" minWidth="10.0" prefWidth="470.91754150390625" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1025.4326171875" minWidth="528.0824584960938" prefWidth="528.0824584960938" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="504.7752685546875" minWidth="10.0" prefWidth="504.7752685546875" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -79,90 +77,76 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="240.0" text="m - масса:" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="240.0" text="m Кека (ВД 420), т/ч:" textFill="WHITE" GridPane.rowIndex="1">
                <font>
-                  <Font name="Arial" size="16.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="20.0" prefWidth="242.0" text="Ж/Т флотоконц. :" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="527.0" text="Ввод данных" textFill="WHITE" GridPane.columnSpan="2">
                <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="34.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="241.0" text="KCl, % : " textFill="WHITE" GridPane.rowIndex="1">
+            <Label alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="338.0" prefHeight="17.0" prefWidth="244.0" text="Темп. раствора, t⁰C:" textFill="WHITE" GridPane.rowIndex="4">
                <font>
-                  <Font size="16.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="240.0" text="NaCl, % :" textFill="WHITE" GridPane.rowIndex="2">
+            <TextField fx:id="tempTextField" layoutX="158.0" layoutY="335.0" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
-                  <Font size="16.0" />
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <Label alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="354.0" prefHeight="17.0" prefWidth="244.0" text="ρ ЖФ, т/м3:" textFill="WHITE" GridPane.rowIndex="3">
+               <font>
+                  <Font size="24.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="240.0" text="CaSO4, %:" textFill="WHITE" GridPane.rowIndex="3">
+            <TextField fx:id="densityTextField" layoutX="158.0" layoutY="351.0" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
-                  <Font name="Arial" size="16.0" />
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <Button fx:id="InputButton" mnemonicParsing="false" onMouseClicked="#InputClickedStartCalculations" prefHeight="26.0" prefWidth="626.0" style="-fx-background-color: #8c0a0b;" text="Внести данные" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Label alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="416.0" prefHeight="17.0" prefWidth="244.0" text="Агент H₂O, т/ч:" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font size="24.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="244.0" text="H2O, %:" textFill="WHITE" GridPane.rowIndex="4">
+            <TextField fx:id="agentTextField" layoutX="762.0" layoutY="488.0" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
-                  <Font size="16.0" />
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="mKekTextField" layoutX="280.0" layoutY="299.0" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="20.0" prefWidth="527.0" text=" Результат" textFill="WHITE" GridPane.columnSpan="2" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="34.0" />
                </font>
             </Label>
-            <TextField fx:id="mTotalTextField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <TextField fx:id="slRatioTextField" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <TextField fx:id="KClRedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="NaClRedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="CaSO4RedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="H2ORedWaterTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" prefHeight="20.0" prefWidth="527.0" text="Красная вода" textFill="WHITE" GridPane.columnSpan="2">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="95.0" prefHeight="31.0" prefWidth="332.0" text="Рекоменд. подача Агента, т/ч:" textFill="WHITE" GridPane.rowIndex="7">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="98.0" prefHeight="17.0" prefWidth="491.0" text="Флотоконцетрат" textFill="WHITE" GridPane.columnIndex="2" GridPane.columnSpan="2">
+            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="resultH2O" prefHeight="17.0" prefWidth="335.0" text=" Результат" textFill="#8c0a0b" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="241.0" text="KCl, % : " textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="KClSolidTextField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <TextField fx:id="NaClSolidTextField" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <TextField fx:id="CaSO4SolidTextField" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="240.0" text="NaCl, % :" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="240.0" text="CaSO4, %:" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
-               <font>
-                  <Font name="Arial" size="16.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="338.0" prefHeight="17.0" prefWidth="244.0" text="Темп. раствора, t⁰C:" textFill="WHITE" GridPane.rowIndex="5">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tempTextField" layoutX="158.0" layoutY="335.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label alignment="CENTER" layoutX="10.0" layoutY="354.0" prefHeight="17.0" prefWidth="244.0" text="ρ ЖФ, т/м3:" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="6">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="densityTextField" layoutX="158.0" layoutY="351.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <Button fx:id="InputButton" mnemonicParsing="false" onMouseClicked="#InputClickedStartCalculations" prefHeight="26.0" prefWidth="626.0" style="-fx-background-color: #8c0a0b;" text="Внести данные" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label alignment="CENTER" layoutX="10.0" layoutY="416.0" prefHeight="17.0" prefWidth="244.0" text="Агент H₂O, т:" textFill="WHITE" GridPane.rowIndex="6">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="agentTextField" layoutX="762.0" layoutY="488.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
+         <padding>
+            <Insets left="230.0" />
+         </padding>
       </GridPane>
   </children>
 </VBox>
