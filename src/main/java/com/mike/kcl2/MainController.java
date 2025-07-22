@@ -120,6 +120,7 @@ public class MainController {
 
     //floto
     @FXML private PieChart PieChart;
+    @FXML private PieChart PieChart2;
 
 
     private Material floto;  // Declare floto object
@@ -261,25 +262,60 @@ public class MainController {
 
 
 
-//        PieChart.setTitle("Качество сухого продукта");
-//        PieChart.setStyle("-fx-font-size: 20px;"); // Affects title & legend
-//
-//        ObservableList<PieChart.Data> PieChartData = FXCollections.observableArrayList(
-//                new PieChart.Data(String.format("KCl - %.2f%%", result.getS_KCl_p()), result.getS_KCl_p()),
-//                new PieChart.Data(String.format("NaCl - %.2f%%", result.getS_NaCl_p()), result.getS_NaCl_p()),
-//                new PieChart.Data(String.format("CaSO₄ - %.2f%%", result.getS_CaSO4_p()), result.getS_CaSO4_p())
-//        );
-//        PieChart.setData(PieChartData);
-//
-//// Apply CSS to increase label font size (after data is set)
-//        PieChart.lookupAll(".chart-pie-label").forEach(node ->
-//                node.setStyle("-fx-font-size: 20px;") // Adjust size as needed
-//        );
+        PieChart.setTitle("Качество сухого продукта после коррекции");
+        PieChart.setStyle("-fx-text-fill: white; -fx-font-size: 20px;"); // Title & legend style
+
+        ObservableList<PieChart.Data> PieChartData = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", result.getS_KCl_p()), result.getS_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", result.getS_NaCl_p()), result.getS_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", result.getS_CaSO4_p()), result.getS_CaSO4_p())
+        );
+        PieChart.setData(PieChartData);
+
+// Apply CSS to all chart elements
+        PieChart.lookupAll(".chart-pie-label").forEach(node ->
+                node.setStyle("-fx-font-size: 20px; -fx-fill: white;")
+        );
+        PieChart.lookupAll(".chart-legend-item").forEach(node ->
+                node.setStyle("-fx-text-fill: white; -fx-font-size: 20px;")
+        );
+        PieChart.lookupAll(".chart-title").forEach(node ->
+                node.setStyle("-fx-text-fill: white; -fx-font-size: 20px;")
+        );
+        PieChart.lookupAll(".chart-legend").forEach(node ->
+                node.setStyle("-fx-background-color: #808080; -fx-border-color: #606060;")
+        );
+        PieChart.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
 
 
 
 
 
+
+        PieChart2.setTitle("Качество сухого продукта");
+        PieChart2.setStyle("-fx-text-fill: white; -fx-font-size: 20px;"); // Title & legend style
+
+        ObservableList<PieChart.Data> PieChartData2 = FXCollections.observableArrayList(
+                new PieChart.Data(String.format("KCl - %.2f%%", posleVish.getS_KCl_p()), posleVish.getS_KCl_p()),
+                new PieChart.Data(String.format("NaCl - %.2f%%", posleVish.getS_NaCl_p()), posleVish.getS_NaCl_p()),
+                new PieChart.Data(String.format("CaSO₄ - %.2f%%", posleVish.getS_CaSO4_p()), posleVish.getS_CaSO4_p())
+        );
+        PieChart2.setData(PieChartData2);
+
+// Apply CSS to all chart elements
+        PieChart2.lookupAll(".chart-pie-label").forEach(node ->
+                node.setStyle("-fx-font-size: 20px; -fx-fill: white;")
+        );
+        PieChart2.lookupAll(".chart-legend-item").forEach(node ->
+                node.setStyle("-fx-text-fill: white; -fx-font-size: 20px;")
+        );
+        PieChart2.lookupAll(".chart-title").forEach(node ->
+                node.setStyle("-fx-text-fill: white; -fx-font-size: 20px;")
+        );
+        PieChart2.lookupAll(".chart-legend").forEach(node ->
+                node.setStyle("-fx-background-color: #808080; -fx-border-color: #606060;")
+        );
+        PieChart2.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
     }
 
     public void MenuInputPopOut(ActionEvent actionEvent) {

@@ -278,8 +278,8 @@ public class InputController {
 
 
 
-            result.setL_NaCl_p((Double.parseDouble(String.format("%.2f",20.0))));  // Set NaCl percentage from lookup
-            result.setL_KCl_p((Double.parseDouble(String.format("%.2f", 12.0))));    // Set KCl percentage from lookup
+            result.setL_NaCl_p((Double.parseDouble(String.format("%.2f",16.0))));  // Set NaCl percentage from lookup
+            result.setL_KCl_p((Double.parseDouble(String.format("%.2f", 12.76))));    // Set KCl percentage from lookup
             result.setL_CaSO4_p(0.4);
             result.setH2O_v((Double.parseDouble(String.format("%.2f",(redWater.getL_Check_v()+ floto.getH2O_v()) + (posleVish.getL_NaCl_v()/20 * 1.15*67.6) - (floto.getH2O_v() + redWater.getL_Check_v())))));
 
