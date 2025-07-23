@@ -25,6 +25,13 @@ public class InputController {
     private Material redWater;
     private Material posleVish;
     private Material result;
+    private Material kek;
+    private Material pitanieC;
+    private Material fugat;
+    private Material slivi;
+    private Material peski;
+    private Material pitanieGz;
+    private Material penniy;
 
 
 
@@ -94,6 +101,8 @@ public class InputController {
             double agent = Double.parseDouble(agentTextField.getText());
             int temp = Integer.parseInt(tempTextField.getText());
             double density = Double.parseDouble(densityTextField.getText());
+            double mKek =  Double.parseDouble(mKekTextField.getText());
+            double moist = 0.055;
             double slRatio = 0.8;
             double mTotal = 396.0;
 
@@ -103,6 +112,15 @@ public class InputController {
             double s_NaCl_p = 7.0;
             double s_CaSO4_p = 3.0;
 
+            if (temp != 20 && temp !=25 && temp !=30) {
+                // Create an alert to show the error message
+                Alert alert = new Alert(Alert.AlertType.ERROR,
+                        "Ошибка: введена неверная температура! Допустимые значения: 20, 25, 30.",
+                        ButtonType.OK);
+                alert.setTitle("Ошибка ввода");
+                alert.showAndWait();
+                return; // Exit the method if the check fails
+            }
 
             double sumLiquidPercentages = red_KCl_p + red_NaCl_p + red_CaSO4_p + red_H2O_p;
             if (sumLiquidPercentages != 100) {
@@ -134,6 +152,13 @@ public class InputController {
             posleVish = new Material();
             redWater = new Material();
             result = new Material();
+            kek = new Material();
+            pitanieC = new Material();
+            fugat = new Material();
+            slivi = new Material();
+            peski = new Material();
+            pitanieGz = new Material();
+            penniy = new Material();
 
             // Set the values
             inputValues.setL_KCl_p(red_KCl_p);
@@ -154,7 +179,103 @@ public class InputController {
 
 
 
-            // floto time
+            kek.setS_KCl_p(95.98);
+            kek.setS_NaCl_p(0.7);
+            kek.setS_CaSO4_p(3.32);
+
+            kek.setL_KCl_p(15.2);
+            kek.setL_NaCl_p(12.80);
+            kek.setL_CaSO4_p(0.4);
+            kek.setH2O_p(71.6);
+
+            kek.setH2O_v(Double.parseDouble(String.format("%.2f", mKek/(1+1/moist))));
+            kek.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", kek.getL_CaSO4_p() *kek.getH2O_v()/kek.getH2O_p())));
+            kek.setL_NaCl_v(Double.parseDouble(String.format("%.2f",  kek.getL_NaCl_p() *kek.getH2O_v()/kek.getH2O_p())));
+            kek.setL_KCl_v(Double.parseDouble(String.format("%.2f",  kek.getL_KCl_p() *kek.getH2O_v()/kek.getH2O_p())));
+            kek.setL_Check_v(Double.parseDouble(String.format("%.2f", kek.getL_KCl_v() + kek.getL_NaCl_v()+ kek.getL_CaSO4_v()+ kek.getH2O_v())));
+
+            System.out.println("kek H2O: "+ kek.getH2O_v());
+            System.out.println("kek LCaSO4: "+kek.getL_CaSO4_v());
+            System.out.println("kek LNaCl: "+kek.getL_NaCl_v());
+            System.out.println("kek LKCl: "+kek.getL_KCl_v());
+            System.out.println("kek Lcheck: "+kek.getL_Check_v());
+            System.out.println(" ");
+
+            kek.setS_Check_v(Double.parseDouble(String.format("%.2f", (kek.getH2O_v() / moist) * (1 - (moist / kek.getH2O_p()) * (kek.getL_KCl_p() + kek.getL_NaCl_p() + kek.getL_CaSO4_p())))));
+            kek.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", kek.getS_Check_v()/100 *kek.getS_CaSO4_p())));
+            kek.setS_NaCl_v(Double.parseDouble(String.format("%.2f", kek.getS_Check_v()/100 *kek.getS_NaCl_p())));
+            kek.setS_KCl_v(Double.parseDouble(String.format("%.2f", kek.getS_Check_v()/100 *kek.getS_KCl_p())));
+
+            System.out.println("kek SCaSO4: "+kek.getS_CaSO4_v());
+            System.out.println("kek SNaCl: "+kek.getS_NaCl_v());
+            System.out.println("kek SKCl: "+kek.getS_KCl_v());
+            System.out.println("kek Scheck: "+kek.getS_Check_v());
+            System.out.println(" ");
+
+
+
+
+            pitanieC.setS_KCl_p(95.98);
+            pitanieC.setS_NaCl_p(0.7);
+            pitanieC.setS_CaSO4_p(3.32);
+
+            pitanieC.setL_KCl_p(15.2);
+            pitanieC.setL_NaCl_p(12.80);
+            pitanieC.setL_CaSO4_p(0.4);
+            pitanieC.setH2O_p(71.6);
+
+            pitanieC.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", kek.getS_CaSO4_v()/0.991)));
+            pitanieC.setS_NaCl_v(Double.parseDouble(String.format("%.2f", kek.getS_NaCl_v()/0.99275)));
+            pitanieC.setS_KCl_v(Double.parseDouble(String.format("%.2f", kek.getS_KCl_v()/0.9902)));
+            pitanieC.setS_Check_v(Double.parseDouble(String.format("%.2f", pitanieC.getS_CaSO4_v() + pitanieC.getS_NaCl_v() +pitanieC.getS_KCl_v())));
+
+            System.out.println("pitanieC SCaSO4: "+pitanieC.getS_CaSO4_v());
+            System.out.println("pitanieC SNaCl: "+pitanieC.getS_NaCl_v());
+            System.out.println("pitanieC SKCl: "+pitanieC.getS_KCl_v());
+            System.out.println("pitanieC Scheck: "+pitanieC.getS_Check_v());
+            System.out.println(" ");
+
+            pitanieC.setL_Check_v(Double.parseDouble(String.format("%.2f", pitanieC.getS_Check_v())));
+            pitanieC.setH2O_v(Double.parseDouble(String.format("%.2f", (pitanieC.getL_Check_v()/100) * pitanieC.getH2O_p())));
+            pitanieC.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", (pitanieC.getL_Check_v()/100) * pitanieC.getL_CaSO4_p())));
+            pitanieC.setL_NaCl_v(Double.parseDouble(String.format("%.2f",  (pitanieC.getL_Check_v()/100) * pitanieC.getL_NaCl_p())));
+            pitanieC.setL_KCl_v(Double.parseDouble(String.format("%.2f",  (pitanieC.getL_Check_v()/100) * pitanieC.getL_KCl_p())));
+
+            System.out.println("pitanieC H2O: "+ pitanieC.getH2O_v());
+            System.out.println("pitanieC LCaSO4: "+pitanieC.getL_CaSO4_v());
+            System.out.println("pitanieC LNaCl: "+pitanieC.getL_NaCl_v());
+            System.out.println("pitanieC LKCl: "+pitanieC.getL_KCl_v());
+            System.out.println("pitanieC Lcheck: "+pitanieC.getL_Check_v());
+            System.out.println(" ");
+
+
+
+
+
+
+            fugat.setS_CaSO4_v(Double.parseDouble(String.format("%.2f", pitanieC.getS_CaSO4_v() - kek.getS_CaSO4_v())));
+            fugat.setS_NaCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getS_NaCl_v() - kek.getS_NaCl_v())));
+            fugat.setS_KCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getS_KCl_v() - kek.getS_KCl_v())));
+            fugat.setS_Check_v(Double.parseDouble(String.format("%.2f", fugat.getS_CaSO4_v() + fugat.getS_NaCl_v() +fugat.getS_KCl_v())));
+
+            System.out.println("fugat SCaSO4: "+fugat.getS_CaSO4_v());
+            System.out.println("fugat SNaCl: "+fugat.getS_NaCl_v());
+            System.out.println("fugat SKCl: "+fugat.getS_KCl_v());
+            System.out.println("fugat Scheck: "+fugat.getS_Check_v());
+            System.out.println(" ");
+
+            fugat.setL_CaSO4_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_CaSO4_v() - kek.getL_CaSO4_v())));
+            fugat.setL_NaCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_NaCl_v() - kek.getL_NaCl_v())));
+            fugat.setL_KCl_v(Double.parseDouble(String.format("%.2f", pitanieC.getL_KCl_v() - kek.getL_KCl_v())));
+            fugat.setH2O_v(Double.parseDouble(String.format("%.2f", pitanieC.getH2O_v())));
+            fugat.setL_Check_v(Double.parseDouble(String.format("%.2f", fugat.getL_CaSO4_v() + fugat.getL_NaCl_v() +fugat.getL_KCl_v() + fugat.getH2O_v())));
+
+            System.out.println("fugat LCaSO4: "+fugat.getL_CaSO4_v());
+            System.out.println("fugat LNaCl: "+fugat.getL_NaCl_v());
+            System.out.println("fugat LKCl: "+fugat.getL_KCl_v());
+            System.out.println("fugat Lcheck: "+fugat.getL_Check_v());
+            System.out.println(" ");
+
 
             floto.setmSolid(mSolid);
             floto.setS_KCl_p(s_KCl_p);

@@ -62,9 +62,9 @@
       </MenuBar>
       <GridPane prefHeight="631.0" prefWidth="828.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="670.7489624023438" minWidth="10.0" prefWidth="470.91754150390625" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1025.4326171875" minWidth="528.0824584960938" prefWidth="528.0824584960938" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="504.7752685546875" minWidth="10.0" prefWidth="504.7752685546875" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="670.7489624023438" minWidth="10.0" prefWidth="542.1314697265625" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1025.4326171875" minWidth="428.768798828125" prefWidth="528.1646728515625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="504.7752685546875" minWidth="10.0" prefWidth="409.3353271484375" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
