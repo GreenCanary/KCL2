@@ -7,6 +7,7 @@
     <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="kcl3 LOGIC DONE AGAIN 222">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/LogoRED.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +63,11 @@
     "Application.Application.executor": "Run",
     "Application.HelloApplication.executor": "Run",
     "JAR Application.KCL2-1.0-SNAPSHOT.jar.executor": "Run",
+    "JAR Application.KCL3-1.0-SNAPSHOT.jar.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "project.structure.last.edited": "Project",
+    "git-widget-placeholder": "final-fixed",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.lookFeel"
@@ -76,7 +78,7 @@
       <recent name="com.mike.kcl2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="JAR Application.KCL3-1.0-SNAPSHOT.jar">
     <configuration name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mike.kcl2.Application" />
       <module name="KCL3" />
@@ -94,8 +96,13 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/KCL2-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
+    <configuration name="KCL3-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/KCL3-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.KCL3-1.0-SNAPSHOT.jar" />
         <item itemvalue="JAR Application.KCL2-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
