@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="kcl3 final version">
+    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="kcl3 final version 31 7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/PopOutInput.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/PopOutInput.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,14 +113,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744101248866</updated>
-    </task>
-    <task id="LOCAL-00005" summary="popout2">
-      <option name="closed" value="true" />
-      <created>1744118190402</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1744118190402</updated>
     </task>
     <task id="LOCAL-00006" summary="Test">
       <option name="closed" value="true" />
@@ -508,7 +498,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753442129328</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="kcl3 final version 31 7">
+      <option name="closed" value="true" />
+      <created>1753957980619</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1753957980620</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -523,7 +521,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="penniy" />
     <MESSAGE value="obezvosh" />
     <MESSAGE value="red water tie" />
     <MESSAGE value="red water done" />
@@ -548,6 +545,7 @@
     <MESSAGE value="kcl3 LOGIC DONE AGAIN 22" />
     <MESSAGE value="kcl3 LOGIC DONE AGAIN 222" />
     <MESSAGE value="kcl3 final version" />
-    <option name="LAST_COMMIT_MESSAGE" value="kcl3 final version" />
+    <MESSAGE value="kcl3 final version 31 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="kcl3 final version 31 7" />
   </component>
 </project>
