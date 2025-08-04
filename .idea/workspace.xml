@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="kcl3 final version 1 8">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="kcl3 final version 4 8" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,22 +117,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744101248866</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Works 2">
-      <option name="closed" value="true" />
-      <created>1744292786529</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1744292786529</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Works 3">
-      <option name="closed" value="true" />
-      <created>1744297128681</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1744297128681</updated>
     </task>
     <task id="LOCAL-00012" summary="Works 4">
       <option name="closed" value="true" />
@@ -512,7 +494,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754331630196</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="kcl3 final version 1 8">
+      <option name="closed" value="true" />
+      <created>1754332177492</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1754332177492</updated>
+    </task>
+    <task id="LOCAL-00060" summary="kcl3 final version 4 8">
+      <option name="closed" value="true" />
+      <created>1754333029133</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1754333029133</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -527,7 +525,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="red water tie" />
     <MESSAGE value="red water done" />
     <MESSAGE value="done v1" />
     <MESSAGE value="done v2" />
@@ -552,6 +549,7 @@
     <MESSAGE value="kcl3 final version" />
     <MESSAGE value="kcl3 final version 31 7" />
     <MESSAGE value="kcl3 final version 1 8" />
-    <option name="LAST_COMMIT_MESSAGE" value="kcl3 final version 1 8" />
+    <MESSAGE value="kcl3 final version 4 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="kcl3 final version 4 8" />
   </component>
 </project>

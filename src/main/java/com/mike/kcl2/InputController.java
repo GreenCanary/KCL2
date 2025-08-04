@@ -33,7 +33,7 @@ public class InputController {
 
 
     @FXML private TextField mKekTextField;
-    @FXML private TextField mKekTextField2;
+
     @FXML private TextField tempTextField;
     @FXML private TextField densityTextField;
     @FXML private TextField redWaterTextField;
@@ -49,7 +49,6 @@ public class InputController {
 
     public void initialize() {
         mKekTextField.setPromptText("140 т/ч");
-        mKekTextField2.setPromptText("0 т/ч");
         tempTextField.setPromptText("20, 25, или 30 t⁰C");
         densityTextField.setPromptText("1.20 т/м3");
         redWaterTextField.setPromptText("50 м3/ч");
@@ -60,7 +59,6 @@ public class InputController {
     private void SaveMenuItemClicked(ActionEvent event) {
         Preferences prefs = Preferences.userNodeForPackage(InputController.class);
         prefs.put("mKek", mKekTextField.getText());
-        prefs.put("mKek2", mKekTextField2.getText());
         prefs.put("temp", tempTextField.getText());
         prefs.put("density", densityTextField.getText());
         prefs.put("red water", redWaterTextField.getText());
@@ -71,7 +69,6 @@ public class InputController {
         Preferences prefs = Preferences.userNodeForPackage(InputController.class);
 
         mKekTextField.setText(prefs.get("mKek", ""));
-        mKekTextField2.setText(prefs.get("mKek2", ""));
         tempTextField.setText(prefs.get("temp", ""));
         densityTextField.setText(prefs.get("density", ""));
         redWaterTextField.setText(prefs.get("red water", ""));
@@ -82,7 +79,6 @@ public class InputController {
         Preferences prefs = Preferences.userNodeForPackage(InputController.class);
 
         mKekTextField.clear();
-        mKekTextField2.clear();
         tempTextField.clear();
         densityTextField.clear();
         redWaterTextField.clear();
@@ -116,11 +112,9 @@ public class InputController {
             int temp = Integer.parseInt(tempTextField.getText());
             double density = Double.parseDouble(densityTextField.getText().replace(',', '.'));
             double mKek1 = Double.parseDouble(mKekTextField.getText().replace(',', '.'));
-            double mKek2 = Double.parseDouble(mKekTextField2.getText().replace(',', '.'));
             System.out.println("Agent : "+agent);
             System.out.println("mKek1 : "+mKek1);
-            System.out.println("mKek2 : "+mKek2);
-            double mKek = mKek1 +mKek2;
+            double mKek = mKek1;
             double moist = 0.055;
             double slRatio = 0.8;
             double mTotal = 396.0;
