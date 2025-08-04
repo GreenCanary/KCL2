@@ -163,8 +163,6 @@ public class InputController {
             }
 
 
-
-
             // Store in InputValuesPrecentages object
             inputValues = new InputValuesPrecentages();
             floto = new Material();
