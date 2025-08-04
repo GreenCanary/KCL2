@@ -109,6 +109,7 @@ public class InputController {
             double red_CaSO4_p = 0.0;
             double red_H2O_p = 100.0;
 
+
             double redWater1 = Double.parseDouble(redWaterTextField.getText().replace(',', '.'));
             double techWater1 = Double.parseDouble(techWaterTextField.getText().replace(',', '.'));
             double agent = (redWater1 + techWater1) * 1.04;
