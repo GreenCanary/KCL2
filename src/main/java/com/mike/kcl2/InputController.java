@@ -5,10 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -92,6 +89,11 @@ public class InputController {
         techWaterTextField.clear();
     }
 
+    @FXML
+    private void ExitMenuItemClicked(ActionEvent event) {
+        Preferences prefs = Preferences.userNodeForPackage(InputController.class);
+        javafx.application.Platform.exit();
+    }
 
 
     public void setLabelValue(Label label, double value) {
@@ -107,13 +109,13 @@ public class InputController {
             double red_CaSO4_p = 0.0;
             double red_H2O_p = 100.0;
 
-            double redWater1 = Double.parseDouble(redWaterTextField.getText());
-            double techWater1 = Double.parseDouble(techWaterTextField.getText());
+            double redWater1 = Double.parseDouble(redWaterTextField.getText().replace(',', '.'));
+            double techWater1 = Double.parseDouble(techWaterTextField.getText().replace(',', '.'));
             double agent = (redWater1 + techWater1) * 1.04;
             int temp = Integer.parseInt(tempTextField.getText());
-            double density = Double.parseDouble(densityTextField.getText());
-            double mKek1 = Double.parseDouble(mKekTextField.getText());
-            double mKek2 = Double.parseDouble(mKekTextField2.getText());
+            double density = Double.parseDouble(densityTextField.getText().replace(',', '.'));
+            double mKek1 = Double.parseDouble(mKekTextField.getText().replace(',', '.'));
+            double mKek2 = Double.parseDouble(mKekTextField2.getText().replace(',', '.'));
             System.out.println("Agent : "+agent);
             System.out.println("mKek1 : "+mKek1);
             System.out.println("mKek2 : "+mKek2);

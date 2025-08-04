@@ -56,6 +56,7 @@
               <MenuItem fx:id="LoadMenuItem" mnemonicParsing="false" onAction="#LoadMenuItemClicked" text="Загрузить" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="DeleteMenuItem" mnemonicParsing="false" onAction="#DeleteMenuItemClicked" text="Удалить" />
+                  <MenuItem fx:id="ExitMenuItem" mnemonicParsing="false" onAction="#ExitMenuItemClicked" text="Выйти" />
             </items>
           </Menu>
         </menus>
