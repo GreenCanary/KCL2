@@ -2,15 +2,11 @@ package com.mike.kcl2;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
-import java.io.Console;
 import java.util.prefs.Preferences;
 
 import java.io.IOException;
@@ -38,7 +34,8 @@ public class InputController {
     @FXML private TextField densityTextField;
     @FXML private TextField redWaterTextField;
     @FXML private TextField techWaterTextField;
-    @FXML private Label resultH2O;
+    @FXML private Label resultH2Ored;
+    @FXML private Label resultH2Otech;
 
 
 
@@ -176,7 +173,19 @@ public class InputController {
             double naclPercentage = densityData.naclPercentage;
             double kclPercentage = densityData.kclPercentage;
             double caso4Percentage = 0.4;
-            double waterPercentage = 100 - (naclPercentage + kclPercentage + caso4Percentage);
+            double waterPercentage = (100 - (naclPercentage + kclPercentage + caso4Percentage));
+            double waterPercentageMass = 0;
+            if (temp == 20){
+                 waterPercentageMass = 70.58;
+            }
+            if (temp == 25){
+                waterPercentageMass = 70.21;
+            }
+            if (temp == 30){
+                waterPercentageMass = 69.51;
+            }
+
+
 
 
             // Set the values
@@ -233,18 +242,20 @@ public class InputController {
 
 
 
-            posleVish.setL_NaCl_p((Double.parseDouble(String.format("%.2f",18.0))));  // Set NaCl percentage from lookup
-            posleVish.setL_KCl_p((Double.parseDouble(String.format("%.2f", 12.1))));    // Set KCl percentage from lookup
+            posleVish.setL_NaCl_p((Double.parseDouble(String.format("%.2f",naclPercentage))));  // Set NaCl percentage from lookup
+            posleVish.setL_KCl_p((Double.parseDouble(String.format("%.2f", kclPercentage))));    // Set KCl percentage from lookup
             posleVish.setL_CaSO4_p(0.4);
-            double waterPercentagePosleVish = 100 - posleVish.getL_NaCl_p() - posleVish.getL_KCl_p() - 0.4;
+            double waterPercentagePosleVish = 100 - (posleVish.getL_NaCl_p() + posleVish.getL_KCl_p() + 0.4);
             posleVish.setH2O_p((Double.parseDouble(String.format("%.2f",waterPercentagePosleVish))));
             posleVish.setL_Check_p(100);
 
             double waterTotal = floto.getH2O_v() + agent;
             double Na = naclPercentage* (waterTotal/waterPercentage);
-            double waterTotalCalculated = (Na/16.6) *70.34;
+            double onePercentWater = Na/16.9;
+            double waterTotalCalculated = onePercentWater * waterPercentageMass;
             double waterCorrection = waterTotalCalculated - waterTotal;
             double waterCorrectionCalculated = (agent + waterCorrection);
+
 
 
             posleVish.setH2O_v(Double.parseDouble(String.format("%.2f", floto.getH2O_v())));
@@ -272,12 +283,26 @@ public class InputController {
 
 
             System.out.println("na: " + Na);
+            System.out.println("onePercentWater: " + onePercentWater);
+            System.out.println("WaterPrecentage: " + waterPercentage);
             System.out.println("water total: " + waterTotal);
             System.out.println("water total calculated: " + waterTotalCalculated);
             System.out.println("water correction: " + waterCorrection);
             System.out.println("water correction calculated: " + waterCorrectionCalculated);
 
-            setLabelValue(resultH2O, (Double.parseDouble(String.format("%.2f",waterCorrectionCalculated))));
+            double redWaterCorrectionCalculated = 0;
+            double techWaterCorrectionCalculated = 0;
+
+            if (waterTotalCalculated/1.04 > redWater1){
+                redWaterCorrectionCalculated = redWater1;
+            }
+            else {
+                redWaterCorrectionCalculated = waterTotalCalculated/1.04;
+            }
+
+            techWaterCorrectionCalculated = (waterCorrectionCalculated/1.04) - redWaterCorrectionCalculated;
+            setLabelValue(resultH2Ored, (Double.parseDouble(String.format("%.0f",redWaterCorrectionCalculated))));
+            setLabelValue(resultH2Otech, (Double.parseDouble(String.format("%.0f",techWaterCorrectionCalculated))));
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mike/kcl2/Main.fxml")); // Adjust path to match your project structure
             Parent root = loader.load();
 

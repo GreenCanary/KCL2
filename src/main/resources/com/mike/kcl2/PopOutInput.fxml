@@ -61,10 +61,10 @@
           </Menu>
         </menus>
       </MenuBar>
-      <GridPane prefHeight="881.0" prefWidth="1704.0">
+      <GridPane prefHeight="1012.0" prefWidth="1704.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="670.7489624023438" minWidth="10.0" prefWidth="542.1314697265625" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1025.4326171875" minWidth="428.768798828125" prefWidth="528.1646728515625" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="859.7828979492188" minWidth="10.0" prefWidth="636.521728515625" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1025.4326171875" minWidth="206.21710205078125" prefWidth="427.978271484375" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="504.7752685546875" minWidth="10.0" prefWidth="409.3353271484375" />
         </columnConstraints>
         <rowConstraints>
@@ -73,6 +73,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -134,13 +135,13 @@
                   <Font name="System Bold" size="34.0" />
                </font>
             </Label>
-            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="10.0" layoutY="95.0" prefHeight="31.0" prefWidth="534.0" text="Рекоменд. объем выщ. агента, м3/ч:" textFill="WHITE" GridPane.rowIndex="8">
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="10.0" layoutY="95.0" prefHeight="31.0" prefWidth="534.0" text="Рекомендуемый объем Красной Воды, м3/ч:" textFill="WHITE" GridPane.rowIndex="8">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
             <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label fx:id="resultH2O" prefHeight="17.0" prefWidth="335.0" text=" Результат" textFill="#8c0a0b" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <Label fx:id="resultH2Ored" prefHeight="17.0" prefWidth="335.0" text=" Результат" textFill="#0b8a1c" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
@@ -155,6 +156,16 @@
                   <Font size="24.0" />
                </font>
             </TextField>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="240.0" layoutY="855.0" prefHeight="31.0" prefWidth="534.0" text="Рекомендуемый объем Технической Воды, м3/ч:" textFill="WHITE" GridPane.rowIndex="9">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="resultH2Otech" layoutX="804.0" layoutY="855.0" prefHeight="17.0" prefWidth="335.0" text=" Результат" textFill="#0b8a1c" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
          </children>
          <padding>
             <Insets left="230.0" />

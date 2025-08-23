@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="kcl3 final version 4 8" />
+    <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="kcl3 final version 4 8">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_08_2025,_1_22 pm_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_08_2025__1_22pm__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/PopOutInput.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/PopOutInput.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,14 +125,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744101248866</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Works 4">
-      <option name="closed" value="true" />
-      <created>1744297329465</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1744297329465</updated>
     </task>
     <task id="LOCAL-00013" summary="Works 4">
       <option name="closed" value="true" />
@@ -510,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754333029133</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="kcl3 final version 4 8">
+      <option name="closed" value="true" />
+      <created>1754333155552</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1754333155552</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
