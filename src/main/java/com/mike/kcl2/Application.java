@@ -3,6 +3,7 @@ package com.mike.kcl2;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -25,9 +26,15 @@ public class Application extends javafx.application.Application {
         Scene scene = new Scene(rootContainer);
         stage.setScene(scene);
         stage.setFullScreen(true);
-        stage.setFullScreenExitHint("");
+        stage.setFullScreenExitHint("esc чтобы закрыть программу");
         stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         stage.show();
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ESCAPE) {
+                stage.close();   // closes the stage
+                // OR Platform.exit();  // exits the whole application
+            }
+        });
 
     }
 

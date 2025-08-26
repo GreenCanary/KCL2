@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5f494b70-406d-4219-94ec-e6778ab5fce3" name="Changes" comment="kcl3 final version contract 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/InputController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/Main copy.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/Main.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mike/kcl2/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/PopOutInput.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mike/kcl2/PopOutInput.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
